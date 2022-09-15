@@ -2,7 +2,8 @@ import { defineStore } from 'pinia';
 
 const getDefaultState = () => ({
   visitedViews: [],
-  cachedViews: []
+  cachedViews: [],
+  wrapperMap: new Map()
 });
 
 const getters = {};
@@ -41,6 +42,9 @@ const actions = {
   delCachedView(view) {
     const index = this.cachedViews.indexOf(view.name);
     index > -1 && this.cachedViews.splice(index, 1);
+    if (this.wrapperMap.has(view.name)) {
+      this.wrapperMap.delete(view.name);
+    }
   },
 
   delOthersViews(view) {
@@ -60,6 +64,11 @@ const actions = {
       // if index = -1, there is no cached tags
       this.cachedViews = [];
     }
+    this.wrapperMap.forEach((value, key) => {
+      if (view.name !== key) {
+        this.wrapperMap.delete(key);
+      }
+    });
   },
 
   delAllViews() {
@@ -73,6 +82,7 @@ const actions = {
   },
   delAllCachedViews() {
     this.cachedViews = [];
+    this.wrapperMap.clear();
   },
 
   updateVisitedView(view) {
