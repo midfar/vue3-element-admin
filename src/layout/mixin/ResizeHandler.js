@@ -13,28 +13,28 @@ export default defineComponent({
     }
   },
   beforeMount() {
-    window.addEventListener('resize', this.$_resizeHandler);
+    window.addEventListener('resize', this.resizeHandler);
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.$_resizeHandler);
+    window.removeEventListener('resize', this.resizeHandler);
   },
   mounted() {
-    const isMobile = this.$_isMobile();
+    const isMobile = this.isMobile();
     if (isMobile) {
       store.app().toggleDevice('mobile');
       store.app().closeSidebar({ withoutAnimation: true });
     }
   },
   methods: {
-    // use $_ for mixins properties
+    // do not use $_ for mixins properties
     // https://vuejs.org/v2/style-guide/index.html#Private-property-names-essential
-    $_isMobile() {
+    isMobile() {
       const rect = body.getBoundingClientRect();
       return rect.width - 1 < WIDTH;
     },
-    $_resizeHandler() {
+    resizeHandler() {
       if (!document.hidden) {
-        const isMobile = this.$_isMobile();
+        const isMobile = this.isMobile();
         store.app().toggleDevice(isMobile ? 'mobile' : 'desktop');
 
         if (isMobile) {

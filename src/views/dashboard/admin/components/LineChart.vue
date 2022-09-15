@@ -4,7 +4,7 @@
 
 <script>
 import * as echarts from 'echarts';
-import { defineComponent } from 'vue';
+import { defineComponent, shallowRef } from 'vue';
 import macaronsTheme from '@/styles/echarts/theme/macarons'; // echarts theme
 import resize from './mixins/resize';
 
@@ -59,7 +59,7 @@ export default defineComponent({
   },
   methods: {
     initChart() {
-      this.chart = echarts.init(this.$el, macaronsTheme);
+      this.chart = shallowRef(echarts.init(this.$el, macaronsTheme));
       this.setOptions(this.chartData);
     },
     setOptions({ expectedData, actualData } = {}) {

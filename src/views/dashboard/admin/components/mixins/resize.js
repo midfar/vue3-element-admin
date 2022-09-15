@@ -4,53 +4,53 @@ import { debounce } from '@/utils';
 export default defineComponent({
   data() {
     return {
-      $_sidebarElm: null,
-      $_resizeHandler: null
+      sidebarElm: null,
+      resizeHandler: null
     };
   },
   mounted() {
-    this.$_resizeHandler = debounce(() => {
+    this.resizeHandler = debounce(() => {
       if (this.chart) {
         this.chart.resize();
       }
     }, 100);
-    this.$_initResizeEvent();
-    this.$_initSidebarResizeEvent();
+    this.initResizeEvent();
+    this.initSidebarResizeEvent();
   },
   beforeUnmount() {
-    this.$_destroyResizeEvent();
-    this.$_destroySidebarResizeEvent();
+    this.destroyResizeEvent();
+    this.destroySidebarResizeEvent();
   },
   // to fixed bug when cached by keep-alive
   // https://github.com/PanJiaChen/vue-element-admin/issues/2116
   activated() {
-    this.$_initResizeEvent();
-    this.$_initSidebarResizeEvent();
+    this.initResizeEvent();
+    this.initSidebarResizeEvent();
   },
   deactivated() {
-    this.$_destroyResizeEvent();
-    this.$_destroySidebarResizeEvent();
+    this.destroyResizeEvent();
+    this.destroySidebarResizeEvent();
   },
   methods: {
-    // use $_ for mixins properties
+    // do not use $_ for mixins properties
     // https://vuejs.org/v2/style-guide/index.html#Private-property-names-essential
-    $_initResizeEvent() {
-      window.addEventListener('resize', this.$_resizeHandler);
+    initResizeEvent() {
+      window.addEventListener('resize', this.resizeHandler);
     },
-    $_destroyResizeEvent() {
-      window.removeEventListener('resize', this.$_resizeHandler);
+    destroyResizeEvent() {
+      window.removeEventListener('resize', this.resizeHandler);
     },
-    $_sidebarResizeHandler(e) {
+    sidebarResizeHandler(e) {
       if (e.propertyName === 'width') {
-        this.$_resizeHandler();
+        this.resizeHandler();
       }
     },
-    $_initSidebarResizeEvent() {
-      this.$_sidebarElm = document.getElementsByClassName('sidebar-container')[0];
-      this.$_sidebarElm && this.$_sidebarElm.addEventListener('transitionend', this.$_sidebarResizeHandler);
+    initSidebarResizeEvent() {
+      this.sidebarElm = document.getElementsByClassName('sidebar-container')[0];
+      this.sidebarElm && this.sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler);
     },
-    $_destroySidebarResizeEvent() {
-      this.$_sidebarElm && this.$_sidebarElm.removeEventListener('transitionend', this.$_sidebarResizeHandler);
+    destroySidebarResizeEvent() {
+      this.sidebarElm && this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler);
     }
   }
 });

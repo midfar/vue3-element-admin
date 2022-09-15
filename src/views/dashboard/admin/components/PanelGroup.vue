@@ -80,6 +80,7 @@ export default defineComponent({
   }
 
   .card-panel {
+    display: flex;
     height: 108px;
     cursor: pointer;
     font-size: 12px;
@@ -130,7 +131,7 @@ export default defineComponent({
 
     .card-panel-icon-wrapper {
       float: left;
-      margin: 14px 0 0 14px;
+      margin: 14px;
       padding: 16px;
       transition: all 0.38s ease-out;
       border-radius: 6px;
@@ -144,7 +145,7 @@ export default defineComponent({
     .card-panel-description {
       float: right;
       font-weight: bold;
-      margin: 26px;
+      margin: 26px 0;
       margin-left: 0px;
 
       .card-panel-text {
