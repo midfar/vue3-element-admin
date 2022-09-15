@@ -13,12 +13,11 @@
 <script>
 import { defineComponent, h } from 'vue';
 import store from '@/store';
-import { mapState } from 'pinia';
+import { wrapperMap } from '@/store/modules/tagsView';
 
 export default defineComponent({
   name: 'AppMain',
   computed: {
-    ...mapState(store.tagsView, ['wrapperMap']),
     cachedViews() {
       return store.tagsView().cachedViews;
     }
@@ -31,8 +30,8 @@ export default defineComponent({
       // 只要自己写好逻辑，每次能找到对应的外壳组件就行，完全可以写成任何自己想要的名字.
       // 这就能配合 keep-alive 的 include 属性可控地操作缓存.
       const wrapperName = route.name;
-      if (this.wrapperMap.has(wrapperName)) {
-        wrapper = this.wrapperMap.get(wrapperName);
+      if (wrapperMap.has(wrapperName)) {
+        wrapper = wrapperMap.get(wrapperName);
       } else {
         wrapper = {
           name: wrapperName,
@@ -40,7 +39,7 @@ export default defineComponent({
             return h('div', { className: 'vaf-page-wrapper' }, component);
           }
         };
-        this.wrapperMap.set(wrapperName, wrapper);
+        wrapperMap.set(wrapperName, wrapper);
       }
       return h(wrapper);
     }
