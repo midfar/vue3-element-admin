@@ -1,6 +1,6 @@
 # vue3-element-admin
 
-这个模板使用了最新的 vue3 和 element-plus UI框架，vite 构建工具、pinia 状态管理、vue-router 路由管理、mockjs 数据模拟。功能从[Vue Element Admin](https://panjiachen.github.io/vue-element-admin-site/zh/guide/essentials/router-and-nav.html#%E9%85%8D%E7%BD%AE%E9%A1%B9) 移植而来，详细使用可以参考该文档。
+这个模板使用了最新的 vue3 和 element-plus UI框架，vite 构建工具、pinia 状态管理、vue-router 路由管理、mockjs 数据模拟。功能从Vue Element Admin 移植而来，详细使用可以参考[该文档](https://panjiachen.github.io/vue-element-admin-site/zh/guide/essentials/router-and-nav.html#%E9%85%8D%E7%BD%AE%E9%A1%B9)。
 
 # 在线示例
 
@@ -39,6 +39,12 @@ npm run build:test
 ```sh
 npm run lint
 ```
+
+### 捐赠
+
+如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 :tropical_drink:
+
+<img src="https://vue3-element-admin.midfar.com/midfar_pay.jpg" alt="捐赠" style="zoom: 20%;" />
 
 ## License
 
