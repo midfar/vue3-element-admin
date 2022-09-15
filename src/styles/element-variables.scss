@@ -1,0 +1,26 @@
+:root {
+  --el-color-white: #efefef;
+
+  // base color
+  --blue: #324157;
+  --light-blue: #3A71A8;
+  --red: #C03639;
+  --pink: #E65D6E;
+  --green: #30B08F;
+  --tiffany: #4AB7BD;
+  --yellow: #FEC171;
+  --pan-green: #30B08F;
+
+  // sidebar
+  --menu-text: #bfcbd9;
+  --menu-active-text: #409EFF;
+  --sub-menu-active-text: #f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+  --menu-bg: #304156;
+  --menu-hover: #263445;
+
+  --sub-menu-bg: #1f2d3d;
+  --sub-menu-hover: #001528;
+
+  --side-bar-width: 210px;
+}
