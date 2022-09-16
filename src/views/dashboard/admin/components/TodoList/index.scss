@@ -222,7 +222,6 @@
     color: #777;
     position: relative;
     padding: 10px 15px;
-    height: 40px;
     text-align: center;
     border-top: 1px solid #e6e6e6;
   }
@@ -310,9 +309,6 @@
     }
   }
   @media (max-width: 430px) {
-    .footer {
-      height: 50px;
-    }
     .filters {
       bottom: 10px;
     }
