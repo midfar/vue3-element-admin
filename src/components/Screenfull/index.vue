@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import screenfull from 'screenfull';
+import screenfull, { bindF11, unbindF11 } from '@/utils/screenfull';
 
 export default defineComponent({
   name: 'Screenfull',
@@ -17,9 +17,11 @@ export default defineComponent({
   },
   mounted() {
     this.init();
+    bindF11();
   },
   beforeUnmount() {
     this.destroy();
+    unbindF11();
   },
   methods: {
     click() {
@@ -34,7 +36,7 @@ export default defineComponent({
       screenfull.toggle();
     },
     handleChange() {
-      console.log('handleChange', screenfull.isFullscreen);
+      console.log('screenfull.handleChange', screenfull.isFullscreen);
       this.isFullscreen = screenfull.isFullscreen;
     },
     init() {
