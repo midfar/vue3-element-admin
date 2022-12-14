@@ -18,7 +18,7 @@ export default defineComponent({
   },
   computed: {
     scrollWrapper() {
-      return this.$refs.scrollContainer.$refs.wrap$;
+      return this.$refs.scrollContainer.$refs.wrapRef;
     }
   },
   mounted() {
