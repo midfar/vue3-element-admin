@@ -22,8 +22,9 @@ console.log('appStore.device=', useAppStore.device);
 <template>
   <div class="app-container">
     <div class="mytitle">
-      <span class="text">Hello</span>
+      <span class="text">获取环境变量</span>
     </div>
+    <div>element按钮示例</div>
     <div class="button-example">
       <el-row class="mb-4">
         <el-button>Default</el-button>
@@ -61,6 +62,8 @@ console.log('appStore.device=', useAppStore.device);
         <el-button type="danger" :icon="Delete" circle />
       </el-row>
     </div>
+    <div>&nbsp;</div>
+    <div>element图标示例</div>
     <div style="font-size: 20px;">
       <!-- 由于SVG图标默认不携带任何属性 -->
       <!-- 你需要直接提供它们 -->
