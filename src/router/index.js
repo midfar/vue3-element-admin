@@ -389,6 +389,8 @@ export const asyncRoutes = [
 
 const createTheRouter = () => createRouter({
   // history: createWebHashHistory(import.meta.env.BASE_URL),
+  // 注意，如果要配置 HTML5 模式，则需要修改nginx配置，参考资料：
+  // https://router.vuejs.org/zh/guide/essentials/history-mode.html
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),
   routes: constantRoutes

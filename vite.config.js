@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
   const prodMock = true;
 
   return {
-    base: '/', // hash模式配置"./"，url模式配置"/"
+    base: './', // 注意，必须以"/"结尾
     define: {
       'process.env': env
     },
