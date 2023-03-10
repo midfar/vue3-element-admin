@@ -5,7 +5,7 @@ import router, { resetRouter } from '@/router';
 import tagsViewStore from './tagsView';
 import permissionStore from './permission';
 
-interface IUserState {
+export interface IUserState {
   token: string;
   name: string;
   avatar: string;

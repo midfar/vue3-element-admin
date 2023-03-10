@@ -1,8 +1,7 @@
 import { createPinia, acceptHMRUpdate } from 'pinia';
 import type { StoreDefinition } from 'pinia';
 // https://webpack.js.org/guides/dependency-management/#requirecontext
-const modulesFiles = import.meta.globEager('./modules/*.ts');
-
+const modulesFiles = import.meta.glob('./modules/*.ts', { eager: true });
 // console.log('modulesFiles=', modulesFiles);
 
 // you do not need `import app from './modules/app'`

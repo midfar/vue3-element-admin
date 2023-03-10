@@ -37,7 +37,12 @@ router.beforeEach(async (to, from, next) => {
         try {
           // get user info
           // note: roles must be a object array! such as: ['admin'] or ,['developer','editor']
-          const { roles } = await userStore().getInfo();
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const infoRes = await userStore().getInfo() as any;
+          let roles = [];
+          if (infoRes.roles) {
+            roles = infoRes.roles;
+          }
 
           // generate accessible routes map based on roles
           const accessRoutes = await permissionStore().generateRoutes(roles);
@@ -53,7 +58,8 @@ router.beforeEach(async (to, from, next) => {
           // hack method to ensure that addRoutes is complete
           // set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true });
-        } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
           // remove token and go to login page to re-login
           await userStore().resetToken();
           ElMessage.error(error.message || 'Has Error');

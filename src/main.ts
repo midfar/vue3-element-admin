@@ -7,7 +7,7 @@ import { setupStore } from './store';
 import '@/styles/index.scss';
 import SvgIcon from './icons'; // icon
 import './permission'; // permission control
-import vPermission from './directive/permission/index.js'; // permission control
+import vPermission from './directive/permission/index'; // permission control
 
 const app = createApp(App);
 setupStore(app);
