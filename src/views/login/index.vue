@@ -62,12 +62,9 @@
 import { validUsername } from '@/utils/validate';
 import { defineComponent } from 'vue';
 import SocialSign from './components/SocialSignin.vue';
-import type { FormItemRule, FormValidateCallback, FormValidationResult } from 'element-plus';
+import type { FormItemRule } from 'element-plus';
+import type { IForm } from '@/types/element-plus';
 import store from '@/store';
-
-interface IForm {
-  validate: (callback?: FormValidateCallback | undefined) => FormValidationResult;
-}
 
 export default defineComponent({
   name: 'Login',
