@@ -113,11 +113,11 @@ export default defineComponent({
 
       for (let route of routes) {
         // skip some route
-        if (route.hidden) { continue; }
+        if (route.meta && route.meta.hidden) { continue; }
 
         const onlyOneShowingChild = this.onlyOneShowingChild(route.children, route);
 
-        if (route.children && onlyOneShowingChild && !route.alwaysShow) {
+        if (route.children && onlyOneShowingChild && !(route.meta && route.meta.alwaysShow)) {
           route = onlyOneShowingChild;
         }
 
@@ -237,7 +237,12 @@ export default defineComponent({
     // reference: src/view/layout/components/Sidebar/SidebarItem.vue
     onlyOneShowingChild(children = [], parent) {
       let onlyOneChild = null;
-      const showingChildren = children.filter(item => !item.hidden);
+      const showingChildren = children.filter(item => {
+        if (item.meta && item.meta.hidden) {
+          return false;
+        }
+        return true;
+      });
 
       // When there is only one child route, the child route is displayed by default
       if (showingChildren.length === 1) {

@@ -1,50 +1,53 @@
 import { createRouter, createWebHashHistory } from 'vue-router'; // createWebHashHistory, createWebHistory
+import type { Router, RouteRecordRaw, RouteComponent } from 'vue-router';
 
 /* Layout */
-const Layout = () => import('@/layout');
+const Layout = ():RouteComponent => import('@/layout/index.vue');
 
 /* Router Modules */
 // import componentsRouter from './modules/components';
-// import chartsRouter from './modules/charts';
-// import tableRouter from './modules/table';
+import chartsRouter from './modules/charts';
 // import nestedRouter from './modules/nested';
+import tableRouter from './modules/table';
 
 /**
  * constantRoutes
  * a base page that does not have permission requirements
  * all roles can be accessed
+ *
+ * 注意：hidden、alwaysShow 属性配置移动到了meta中！！！
  */
-export const constantRoutes = [
+export const constantRoutes:RouteRecordRaw[] = [
   {
     path: '/redirect',
     component: Layout,
-    hidden: true,
+    meta: { hidden: true },
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/views/redirect/index.vue')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
+    component: () => import('@/views/login/index.vue'),
+    meta: { hidden: true }
   },
   {
     path: '/auth-redirect',
-    component: () => import('@/views/login/auth-redirect'),
-    hidden: true
+    component: () => import('@/views/login/auth-redirect.vue'),
+    meta: { hidden: true }
   },
   {
     path: '/404',
-    component: () => import('@/views/error-page/404'),
-    hidden: true
+    component: () => import('@/views/error-page/404.vue'),
+    meta: { hidden: true }
   },
   {
     path: '/401',
-    component: () => import('@/views/error-page/401'),
-    hidden: true
+    component: () => import('@/views/error-page/401.vue'),
+    meta: { hidden: true }
   },
   {
     path: '/',
@@ -53,7 +56,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
       }
@@ -65,7 +68,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/documentation/index'),
+        component: () => import('@/views/documentation/index.vue'),
         name: 'Documentation',
         meta: { title: 'Documentation', icon: 'documentation', affix: true }
       }
@@ -78,7 +81,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/guide/index'),
+        component: () => import('@/views/guide/index.vue'),
         name: 'Guide',
         meta: { title: 'Guide', icon: 'guide', noCache: true }
       }
@@ -88,11 +91,11 @@ export const constantRoutes = [
     path: '/profile',
     component: Layout,
     redirect: '/profile/index',
-    hidden: true,
+    meta: { hidden: true },
     children: [
       {
         path: 'index',
-        component: () => import('@/views/profile/index'),
+        component: () => import('@/views/profile/index.vue'),
         name: 'Profile',
         meta: { title: 'Profile', icon: 'user', noCache: true }
       }
@@ -103,15 +106,17 @@ export const constantRoutes = [
 /**
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
+ *
+ * 注意：hidden、alwaysShow 属性配置移动到了meta中！！！
  */
-export const asyncRoutes = [
+export const asyncRoutes:RouteRecordRaw[] = [
   {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
-    alwaysShow: true, // will always show the root menu
     name: 'Permission',
     meta: {
+      alwaysShow: true, // will always show the root menu
       title: 'Permission',
       icon: 'lock',
       roles: ['admin', 'editor'] // you can set roles in root nav
@@ -119,7 +124,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'page',
-        component: () => import('@/views/permission/page'),
+        component: () => import('@/views/permission/page.vue'),
         name: 'PagePermission',
         meta: {
           title: 'Page Permission',
@@ -128,7 +133,7 @@ export const asyncRoutes = [
       },
       {
         path: 'directive',
-        component: () => import('@/views/permission/directive'),
+        component: () => import('@/views/permission/directive.vue'),
         name: 'DirectivePermission',
         meta: {
           title: 'Directive Permission'
@@ -137,7 +142,7 @@ export const asyncRoutes = [
       },
       {
         path: 'role',
-        component: () => import('@/views/permission/role'),
+        component: () => import('@/views/permission/role.vue'),
         name: 'RolePermission',
         meta: {
           title: 'Role Permission',
@@ -153,7 +158,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/icons/index'),
+        component: () => import('@/views/icons/index.vue'),
         name: 'Icons',
         meta: { title: 'Icons', icon: 'icon', noCache: true }
       }
@@ -162,9 +167,9 @@ export const asyncRoutes = [
 
   // /** when your routing map is too long, you can split it into small modules **/
   // componentsRouter,
-  // chartsRouter,
+  chartsRouter,
   // nestedRouter,
-  // tableRouter,
+  tableRouter,
 
   // {
   //   path: '/example',
@@ -223,13 +228,13 @@ export const asyncRoutes = [
     children: [
       {
         path: '401',
-        component: () => import('@/views/error-page/401'),
+        component: () => import('@/views/error-page/401.vue'),
         name: 'Page401',
         meta: { title: '401', noCache: true }
       },
       {
         path: '404',
-        component: () => import('@/views/error-page/404'),
+        component: () => import('@/views/error-page/404.vue'),
         name: 'Page404',
         meta: { title: '404', noCache: true }
       }
@@ -290,9 +295,8 @@ export const asyncRoutes = [
   //   path: '/zip',
   //   component: Layout,
   //   redirect: '/zip/download',
-  //   alwaysShow: true,
   //   name: 'Zip',
-  //   meta: { title: 'Zip', icon: 'zip' },
+  //   meta: { alwaysShow: true, title: 'Zip', icon: 'zip' },
   //   children: [
   //     {
   //       path: 'download',
@@ -341,7 +345,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/clipboard/index'),
+        component: () => import('@/views/clipboard/index.vue'),
         name: 'ClipboardDemo',
         meta: { title: 'Clipboard', icon: 'clipboard' }
       }
@@ -354,7 +358,8 @@ export const asyncRoutes = [
     children: [
       {
         path: 'https://element-plus.midfar.com',
-        meta: { title: 'External Link', icon: 'link' }
+        meta: { title: 'External Link', icon: 'link' },
+        redirect: ''
       }
     ]
   },
@@ -370,13 +375,13 @@ export const asyncRoutes = [
     children: [
       {
         path: 'element-demo',
-        component: () => import('@/views/mydemo/ElementDemo'),
+        component: () => import('@/views/mydemo/ElementDemo.vue'),
         name: 'ElementDemo',
         meta: { title: 'ElementDemo', icon: 'skill' }
       },
       {
         path: 'store-demo',
-        component: () => import('@/views/mydemo/StoreDemo'),
+        component: () => import('@/views/mydemo/StoreDemo.vue'),
         name: 'StoreDemo',
         meta: { title: 'StoreDemo', icon: 'lock' }
       }
@@ -384,10 +389,10 @@ export const asyncRoutes = [
   },
 
   // 404 page must be placed at the end !!!
-  { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true }
+  { path: '/:pathMatch(.*)*', redirect: '/404', meta: { hidden: true }}
 ];
 
-const createTheRouter = () => createRouter({
+const createTheRouter = ():Router => createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   // 注意，如果要配置 HTML5 模式，则需要修改nginx配置，参考资料：
   // https://router.vuejs.org/zh/guide/essentials/history-mode.html
@@ -396,11 +401,15 @@ const createTheRouter = () => createRouter({
   routes: constantRoutes
 });
 
-const router = createTheRouter();
+interface RouterPro extends Router {
+  matcher: unknown;
+}
+
+const router = createTheRouter() as RouterPro;
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  const newRouter = createTheRouter();
+  const newRouter = createTheRouter() as RouterPro;
   router.matcher = newRouter.matcher; // reset router
 }
 

@@ -20,7 +20,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "esnext", "dom.iterable", "scripthost"],
     "noImplicitAny": false,
     "skipLibCheck": true,
     "removeComments": true,

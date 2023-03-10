@@ -4,7 +4,9 @@ export const constantRoutes = [
   {
     path: '/redirect',
     component: 'layout/Layout',
-    hidden: true,
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: '/redirect/:path*',
@@ -15,22 +17,30 @@ export const constantRoutes = [
   {
     path: '/login',
     component: 'views/login/index',
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '/auth-redirect',
     component: 'views/login/auth-redirect',
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '/404',
     component: 'views/error-page/404',
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '/401',
     component: 'views/error-page/401',
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '',
@@ -77,8 +87,8 @@ export const asyncRoutes = [
     path: '/permission',
     component: 'layout/Layout',
     redirect: '/permission/index',
-    alwaysShow: true,
     meta: {
+      alwaysShow: true,
       title: 'Permission',
       icon: 'lock',
       roles: ['admin', 'editor']
@@ -333,8 +343,7 @@ export const asyncRoutes = [
         path: 'edit/:id(\\d+)',
         component: 'views/example/edit',
         name: 'EditArticle',
-        meta: { title: 'Edit Article', noCache: true },
-        hidden: true
+        meta: { hidden: true, title: 'Edit Article', noCache: true }
       },
       {
         path: 'list',
@@ -438,8 +447,7 @@ export const asyncRoutes = [
     path: '/zip',
     component: 'layout/Layout',
     redirect: '/zip/download',
-    alwaysShow: true,
-    meta: { title: 'Zip', icon: 'zip' },
+    meta: { alwaysShow: true, title: 'Zip', icon: 'zip' },
     children: [
       {
         path: 'download',
@@ -466,7 +474,9 @@ export const asyncRoutes = [
   {
     path: '/pdf/download',
     component: 'views/pdf/download',
-    hidden: true
+    meta: {
+      hidden: true
+    }
   },
 
   {
@@ -521,5 +531,5 @@ export const asyncRoutes = [
     ]
   },
 
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', meta: { hidden: true }}
 ];

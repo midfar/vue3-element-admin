@@ -1,6 +1,6 @@
 /** When your routing table is too long, you can split it into small modules**/
 
-const Layout = () => import('@/layout');
+const Layout = () => import('@/layout/index.vue');
 
 const chartsRouter = {
   path: '/charts',
@@ -14,19 +14,19 @@ const chartsRouter = {
   children: [
     {
       path: 'keyboard',
-      component: () => import('@/views/charts/keyboard'),
+      component: () => import('@/views/charts/keyboard.vue'),
       name: 'KeyboardChart',
       meta: { title: 'Keyboard Chart', noCache: true }
     },
     {
       path: 'line',
-      component: () => import('@/views/charts/line'),
+      component: () => import('@/views/charts/line.vue'),
       name: 'LineChart',
       meta: { title: 'Line Chart', noCache: true }
     },
     {
       path: 'mix-chart',
-      component: () => import('@/views/charts/mix-chart'),
+      component: () => import('@/views/charts/mix-chart.vue'),
       name: 'MixChart',
       meta: { title: 'Mix Chart', noCache: true }
     }
