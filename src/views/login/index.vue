@@ -58,24 +58,29 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { validUsername } from '@/utils/validate';
 import { defineComponent } from 'vue';
-import SocialSign from './components/SocialSignin';
+import SocialSign from './components/SocialSignin.vue';
+import type { FormItemRule, FormValidateCallback, FormValidationResult } from 'element-plus';
 import store from '@/store';
+
+interface IForm {
+  validate: (callback?: FormValidateCallback | undefined) => FormValidationResult;
+}
 
 export default defineComponent({
   name: 'Login',
   components: { SocialSign },
   data() {
-    const validateUsername = (rule, value, callback) => {
+    const validateUsername: FormItemRule['validator'] = (_rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error('Please enter the correct user name'));
       } else {
         callback();
       }
     };
-    const validatePassword = (rule, value, callback) => {
+    const validatePassword: FormItemRule['validator'] = (_rule, value, callback) => {
       if (value.length < 6) {
         callback(new Error('The password can not be less than 6 digits'));
       } else {
@@ -116,9 +121,9 @@ export default defineComponent({
   },
   mounted() {
     if (this.loginForm.username === '') {
-      this.$refs.username.focus();
+      (this.$refs.username as HTMLElement).focus();
     } else if (this.loginForm.password === '') {
-      this.$refs.password.focus();
+      (this.$refs.password as HTMLElement).focus();
     }
   },
   unmounted() {
@@ -136,11 +141,11 @@ export default defineComponent({
         this.passwordType = 'password';
       }
       this.$nextTick(() => {
-        this.$refs.password.focus();
+        (this.$refs.password as HTMLElement).focus();
       });
     },
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
+      (this.$refs.loginForm as IForm).validate(valid => {
         if (valid) {
           this.loading = true;
           store.user().login(this.loginForm)

@@ -15,23 +15,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // import openWindow from '@/utils/open-window'
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'SocialSignin',
   methods: {
-    wechatHandleClick() { // thirdpart
-      alert('ok');
+    wechatHandleClick(type: string) { // thirdpart
+      alert(type + 'ok ');
       // this.$store.commit('SET_AUTH_TYPE', thirdpart)
       // const appid = 'xxxxx'
       // const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
       // const url = 'https://open.weixin.qq.com/connect/qrconnect?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_login#wechat_redirect'
       // openWindow(url, thirdpart, 540, 540)
     },
-    tencentHandleClick() { // thirdpart
-      alert('ok');
+    tencentHandleClick(type: string) { // thirdpart
+      alert(type + 'ok');
       // this.$store.commit('SET_AUTH_TYPE', thirdpart)
       // const client_id = 'xxxxx'
       // const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
