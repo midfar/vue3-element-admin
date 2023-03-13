@@ -32,7 +32,7 @@ export default defineComponent({
     };
   },
   // watch: {
-  //   activeName(val) {
+  //   activeName(val) { // url变化会导致渲染异常。因此这里注释掉了
   //     this.$router.push(`${this.$route.path}?tab=${val}`);
   //   }
   // },
