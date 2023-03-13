@@ -40,11 +40,12 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import { fetchList } from '@/api/article';
 import { Timer as IconTimer, Document as IconDocument } from '@element-plus/icons-vue';
 import { markRaw } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'ExportZip',
   components: {
     IconTimer
@@ -83,5 +84,5 @@ export default {
       return jsonData.map(v => filterVal.map(j => v[j]));
     }
   }
-};
+});
 </script>
