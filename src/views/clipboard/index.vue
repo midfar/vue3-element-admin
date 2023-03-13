@@ -19,7 +19,7 @@
 
 <script>
 import clip from '@/utils/clipboard'; // use clipboard directly
-import clipboard from '@/directive/clipboard/index.js'; // use clipboard by v-directive
+import clipboard from '@/directive/clipboard'; // use clipboard by v-directive
 import { defineComponent, markRaw } from 'vue';
 import { ElMessage } from 'element-plus';
 import { Document } from '@element-plus/icons-vue';
