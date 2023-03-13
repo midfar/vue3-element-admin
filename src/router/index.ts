@@ -291,21 +291,21 @@ export const asyncRoutes:RouteRecordRaw[] = [
   //   ]
   // },
 
-  // {
-  //   path: '/zip',
-  //   component: Layout,
-  //   redirect: '/zip/download',
-  //   name: 'Zip',
-  //   meta: { alwaysShow: true, title: 'Zip', icon: 'zip' },
-  //   children: [
-  //     {
-  //       path: 'download',
-  //       component: () => import('@/views/zip/index'),
-  //       name: 'ExportZip',
-  //       meta: { title: 'Export Zip' }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/zip',
+    component: Layout,
+    redirect: '/zip/download',
+    name: 'Zip',
+    meta: { alwaysShow: true, title: 'Zip', icon: 'zip' },
+    children: [
+      {
+        path: 'download',
+        component: () => import('@/views/zip/index.vue'),
+        name: 'ExportZip',
+        meta: { title: 'Export Zip' }
+      }
+    ]
+  },
 
   // {
   //   path: '/pdf',
