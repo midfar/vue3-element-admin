@@ -16,7 +16,7 @@
       </app-link>
     </template>
 
-    <el-sub-menu class="left-sub-menu" v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu class="left-sub-menu" v-else ref="subMenu" :index="resolvePath(item.path)" teleported>
       <template v-if="item.meta" #title>
         <!-- <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" /> -->
         <svg-icon :icon-class="(item.meta && item.meta.icon) || 'sub-el-icon'" />

@@ -77,7 +77,6 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { ElMessage, ElNotification } from 'element-plus';
 import Tinymce from '@/components/Tinymce';
 import Upload from '@/components/Upload/SingleImage3';
 import MDinput from '@/components/MDinput';
@@ -115,7 +114,7 @@ export default defineComponent({
     const validateRequire = (rule, value, callback) => {
       if (value === '') {
         ElMessage({
-          message: rule.field + 'xxx为必传项',
+          message: rule.field + '为必传项',
           type: 'error'
         });
         callback(new Error(rule.field + '为必传项'));

@@ -9,7 +9,6 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { ElMessage } from 'element-plus';
 /**
  * docs:
  * https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce

@@ -79,7 +79,6 @@
 
 <script>
 import { defineComponent, markRaw } from 'vue';
-import { ElMessage } from 'element-plus';
 import { fetchList } from '@/api/article';
 import { parseTime } from '@/utils';
 import { Refresh, CircleCheck, Edit } from '@element-plus/icons-vue';

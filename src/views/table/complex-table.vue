@@ -152,13 +152,11 @@
 
 <script>
 import { defineComponent, markRaw } from 'vue';
-import { ElMessage } from 'element-plus';
 import { Search, Edit, Download } from '@element-plus/icons-vue';
 import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article';
 import waves from '@/directive/waves'; // waves directive
 import { parseTime } from '@/utils';
 import Pagination from '@/components/Pagination'; // secondary package based on el-pagination
-import { ElNotification } from 'element-plus';
 
 const calendarTypeOptions = [
   { key: 'CN', display_name: 'China' },

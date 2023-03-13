@@ -31,7 +31,6 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { ElMessage } from 'element-plus';
 // import { getToken } from 'api/qiniu'
 
 export default defineComponent({

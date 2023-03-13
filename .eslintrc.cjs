@@ -29,9 +29,10 @@ module.exports = {
     defineExpose: 'readonly',
     withDefaults: 'readonly',
     WeixinJSBridge: 'readonly',
+    ElLoading: 'readonly',
     ElMessage: 'readonly',
     ElMessageBox: 'readonly',
-    ElLoading: 'readonly'
+    ElNotification: 'readonly'
   },
   'rules': {
     'vue/no-multiple-template-root': 'off',

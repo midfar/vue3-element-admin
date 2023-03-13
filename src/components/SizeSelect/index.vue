@@ -17,7 +17,6 @@
 <script>
 import { defineComponent } from 'vue';
 import store from '@/store';
-import { ElMessage } from 'element-plus';
 
 export default defineComponent({
   data() {

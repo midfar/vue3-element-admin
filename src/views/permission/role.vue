@@ -52,7 +52,6 @@
 import path from 'path-browserify';
 import { deepClone } from '@/utils';
 import { getRoutes, getRoles, addRole, deleteRole, updateRole } from '@/api/role';
-import { ElMessage, ElMessageBox, ElNotification } from 'element-plus';
 import { defineComponent } from 'vue';
 
 const defaultRole = {
