@@ -14,10 +14,5 @@ Object.keys(modules).forEach((key) => {
  * Used in a production environment. Need to manually import all modules
  */
 export function setupProdMockServer() {
-  // https://kgithub.com/nuysoft/Mock/issues/301
-  // 避免 _xhr.upload.addEventListener is not a function
-  var xhr = new window._XMLHttpRequest();
-  window.XMLHttpRequest.prototype.upload = xhr.upload;
-
   createProdMockServer(mockModules);
 }

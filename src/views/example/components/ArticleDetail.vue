@@ -177,6 +177,13 @@ export default defineComponent({
     // Because if you enter this page and quickly switch tag, may be in the execution of the setTagsViewTitle function, this.$route is no longer pointing to the current page
     // https://github.com/PanJiaChen/vue-element-admin/issues/1221
     this.tempRoute = Object.assign({}, this.$route);
+
+    // https://kgithub.com/nuysoft/Mock/issues/301
+    // 避免 _xhr.upload.addEventListener is not a function
+    if (window._XMLHttpRequest) {
+      var xhr = new window._XMLHttpRequest();
+      window.XMLHttpRequest.prototype.upload = xhr.upload;
+    }
   },
   methods: {
     fetchData(id) {
