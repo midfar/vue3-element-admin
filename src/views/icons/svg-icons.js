@@ -1,4 +1,4 @@
-const modules = import.meta.globEager('../../icons/svg/*.svg');
+const modules = import.meta.glob('../../icons/svg/*.svg', { eager: true });
 
 // const mockModules = {};
 const nameArr = [];

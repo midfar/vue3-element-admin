@@ -65,7 +65,7 @@ export function formatTime(time, option) {
   const d = new Date(time);
   const now = Date.now();
 
-  const diff = (now - d) / 1000;
+  const diff = (now - d.getTime()) / 1000;
 
   if (diff < 30) {
     return '刚刚';
@@ -120,7 +120,7 @@ export function getQueryObject(url) {
 export function byteLength(str) {
   // returns the byte length of an utf8 string
   let s = str.length;
-  for (var i = str.length - 1; i >= 0; i--) {
+  for (let i = str.length - 1; i >= 0; i--) {
     const code = str.charCodeAt(i);
     if (code > 0x7f && code <= 0x7ff) s++;
     else if (code > 0x7ff && code <= 0xffff) s += 2;
@@ -272,6 +272,7 @@ export function debounce(func, wait, immediate) {
   };
 
   return function(...args) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this;
     timestamp = +new Date();
     const callNow = immediate && !timeout;
@@ -295,7 +296,7 @@ export function debounce(func, wait, immediate) {
  */
 export function deepClone(source) {
   if (!source && typeof source !== 'object') {
-    throw new Error('error arguments', 'deepClone');
+    throw new Error('error arguments deepClone');
   }
   const targetObj = source.constructor === Array ? [] : {};
   Object.keys(source).forEach(keys => {
@@ -321,7 +322,7 @@ export function uniqueArr(arr) {
  */
 export function createUniqueString() {
   const timestamp = +new Date() + '';
-  const randomNum = parseInt((1 + Math.random()) * 65536) + '';
+  const randomNum = parseInt((1 + Math.random()) * 65536 + '') + '';
   return (+(randomNum + timestamp)).toString(32);
 }
 
