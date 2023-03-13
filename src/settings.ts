@@ -1,4 +1,13 @@
-export default {
+interface ISettings {
+  title: string;
+  showSettings: boolean;
+  tagsView: boolean;
+  fixedHeader: boolean;
+  sidebarLogo: boolean;
+  errorLog: string | string[];
+}
+
+const settings:ISettings = {
   title: 'Vue3 ElementPlus Admin',
 
   /**
@@ -31,5 +40,7 @@ export default {
    * The default is only used in the production env
    * If you want to also use it in dev, you can pass ['production', 'development']
    */
-  errorLog: 'production'
+  errorLog: ['production', 'development'] // ['production', 'development'], 'production'
 };
+
+export default settings;
