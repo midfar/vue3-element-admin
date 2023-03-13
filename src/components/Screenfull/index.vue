@@ -7,6 +7,7 @@
 <script>
 import { defineComponent } from 'vue';
 import screenfull, { bindF11, unbindF11 } from '@/utils/screenfull';
+import { ElMessage } from 'element-plus';
 
 export default defineComponent({
   name: 'Screenfull',

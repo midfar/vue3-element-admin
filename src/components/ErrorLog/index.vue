@@ -10,7 +10,7 @@
       <template v-slot:title>
         <div class="text-title">
           <span style="padding-right: 10px;">Error Log</span>
-          <el-button size="mini" type="primary" icon="el-icon-delete" @click="clearAll">Clear All</el-button>
+          <el-button size="small" type="primary" icon="el-icon-delete" @click="clearAll">Clear All</el-button>
         </div>
       </template>
       <el-table :data="errorLogs" border>

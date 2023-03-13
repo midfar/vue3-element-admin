@@ -158,6 +158,7 @@ import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
 import waves from '@/directive/waves'; // waves directive
 import { parseTime } from '@/utils';
 import Pagination from '@/components/Pagination'; // secondary package based on el-pagination
+import { ElNotification } from 'element-plus';
 
 const calendarTypeOptions = [
   { key: 'CN', display_name: 'China' },
@@ -303,7 +304,7 @@ export default defineComponent({
           createArticle(this.temp).then(() => {
             this.list.unshift(this.temp);
             this.dialogFormVisible = false;
-            this.$notify({
+            ElNotification({
               title: 'Success',
               message: 'Created Successfully',
               type: 'success',
@@ -331,7 +332,7 @@ export default defineComponent({
             const index = this.list.findIndex(v => v.id === this.temp.id);
             this.list.splice(index, 1, this.temp);
             this.dialogFormVisible = false;
-            this.$notify({
+            ElNotification({
               title: 'Success',
               message: 'Update Successfully',
               type: 'success',
@@ -342,7 +343,7 @@ export default defineComponent({
       });
     },
     handleDelete(row, index) {
-      this.$notify({
+      ElNotification({
         title: 'Success',
         message: 'Delete Successfully',
         type: 'success',
