@@ -7,8 +7,11 @@
           :class="{ 'submenu-title-noDropdown': !isNest }">
 
           <!-- <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" :title="onlyOneChild.meta.title" /> -->
-          <svg-icon v-if="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-            :icon-class="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
+          <template v-if="get2MetaIconPath(onlyOneChild, item)">
+            <svg-icon v-if="typeof get2MetaIconPath(onlyOneChild, item) === 'string'"
+              :icon-class="get2MetaIconPath(onlyOneChild, item)" />
+            <component v-else :is="get2MetaIconPath(onlyOneChild, item)" class="svg-icon el-svg-icon" />
+          </template>
           <template #title>
             <span class="text text-one">{{ onlyOneChild.meta.title }}</span>
           </template>
@@ -19,7 +22,11 @@
     <el-sub-menu class="left-sub-menu" v-else ref="subMenu" :index="resolvePath(item.path)" teleported>
       <template v-if="item.meta" #title>
         <!-- <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" /> -->
-        <svg-icon :icon-class="(item.meta && item.meta.icon) || 'sub-el-icon'" />
+        <template v-if="getMetaIconPath(item)">
+          <svg-icon v-if="typeof getMetaIconPath(item) === 'string'" :icon-class="getMetaIconPath(item)" />
+          <component v-else :is="getMetaIconPath(item)" class="svg-icon el-svg-icon" />
+        </template>
+        <svg-icon v-else icon-class="sub-el-icon" />
         <span class="text text-two">{{ item.meta.title }}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
@@ -73,6 +80,12 @@ export default defineComponent({
     }
   },
   methods: {
+    getMetaIconPath(item) {
+      return item.meta && item.meta.icon;
+    },
+    get2MetaIconPath(onlyOneChild, item) {
+      return onlyOneChild.meta.icon || (item.meta && item.meta.icon);
+    },
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter(item => {
         if (this.isItemHidden) {
@@ -118,5 +131,13 @@ export default defineComponent({
 .left-menu-item,
 .left-sub-menu :deep(.el-sub-menu__title) {
   display: block;
+}
+
+.el-svg-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>

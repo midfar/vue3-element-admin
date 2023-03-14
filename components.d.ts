@@ -77,6 +77,7 @@ declare module '@vue/runtime-core' {
     Sticky: typeof import('./src/components/Sticky/index.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
     Tinymce: typeof import('./src/components/Tinymce/index.vue')['default']
+    UploadExcel: typeof import('./src/components/UploadExcel/index.vue')['default']
     VueCountTo: typeof import('./src/components/vue-count-to/vue-countTo.vue')['default']
   }
   export interface ComponentCustomProperties {
