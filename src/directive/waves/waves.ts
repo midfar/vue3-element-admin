@@ -56,15 +56,26 @@ function handleClick(el, binding) {
   return handle;
 }
 
+function loopFindParentButton(el) {
+  if (!el) return null;
+  if (el.classList.contains('el-button')) {
+    return el;
+  }
+  return loopFindParentButton(el.parentElement);
+}
+
 export default {
-  bind(el, binding) {
+  mounted(textEl, binding) {
+    const el = loopFindParentButton(textEl);
     el.addEventListener('click', handleClick(el, binding), false);
   },
-  update(el, binding) {
+  updated(textEl, binding) {
+    const el = loopFindParentButton(textEl);
     el.removeEventListener('click', el[context].removeHandle, false);
     el.addEventListener('click', handleClick(el, binding), false);
   },
-  unbind(el) {
+  unmounted(textEl) {
+    const el = loopFindParentButton(textEl);
     el.removeEventListener('click', el[context].removeHandle, false);
     el[context] = null;
     delete el[context];

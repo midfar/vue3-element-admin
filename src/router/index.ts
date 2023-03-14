@@ -7,7 +7,7 @@ import { Help as IconHelp } from '@element-plus/icons-vue';
 const Layout = ():RouteComponent => import('@/layout/index.vue');
 
 /* Router Modules */
-// import componentsRouter from './modules/components';
+import componentsRouter from './modules/components';
 import chartsRouter from './modules/charts';
 import nestedRouter from './modules/nested';
 import tableRouter from './modules/table';
@@ -168,7 +168,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
   },
 
   // /** when your routing map is too long, you can split it into small modules **/
-  // componentsRouter,
+  componentsRouter,
   chartsRouter,
   nestedRouter,
   tableRouter,

@@ -11,14 +11,14 @@
       <el-select v-model="listQuery.sort" style="width: 140px" class="filter-item" @change="handleFilter">
         <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key" />
       </el-select>
-      <el-button v-waves class="filter-item" type="primary" :icon="iconSearch" @click="handleFilter">
-        Search
+      <el-button class="filter-item" type="primary" :icon="iconSearch" @click="handleFilter">
+        <span v-waves>Search</span>
       </el-button>
       <el-button class="filter-item" style="margin-left: 10px;" type="primary" :icon="iconEdit" @click="handleCreate">
         Add
       </el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" :icon="iconDownload" @click="handleDownload">
-        Export
+      <el-button :loading="downloadLoading" class="filter-item" type="primary" :icon="iconDownload" @click="handleDownload">
+        <span v-waves>Export</span>
       </el-button>
       <el-checkbox v-model="showReviewer" class="filter-item" style="margin-left:15px;" @change="tableKey=tableKey+1">
         reviewer
