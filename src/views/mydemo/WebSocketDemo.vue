@@ -2,7 +2,7 @@
  * @Author: Cherry 2858937488@qq.com
  * @Date: 2023-03-14 10:40:55
  * @LastEditors: Cherry 2858937488@qq.com
- * @LastEditTime: 2023-03-16 13:47:40
+ * @LastEditTime: 2023-03-16 20:57:15
  * @FilePath: \vue3-admin\vue3-element-admin\src\views\mydemo\WebSocketDemo.vue
  * @Description: websocket
 -->
@@ -112,6 +112,7 @@ const startConnection = () => {
 };
 
 const disconnected = () => {
+  disabled.value = false;
   isConnected.value = false;
   destroySocket();
 };
@@ -137,11 +138,11 @@ const sendMsg = () => {
 
 const createSocket = () => {
   console.log('创建长连接', !socket.value);
-  const usewebSocketStore = webSocketStore();
+  const useWebSocketStore = webSocketStore();
   const useUserStore = userStore();
-  const id = usewebSocketStore.getSocketID() || `${useUserStore.userId}-${new Date().getTime() / 1000}`;
-  if (!usewebSocketStore.getSocketID()) {
-    usewebSocketStore.setSocketID(id);
+  const id = useWebSocketStore.getSocketID() || `${useUserStore.userId}-${new Date().getTime() / 1000}`;
+  if (!useWebSocketStore.getSocketID()) {
+    useWebSocketStore.setSocketID(id);
   }
   socket.value = new Socket({
     url: linkUrl.value + '/' + id,
