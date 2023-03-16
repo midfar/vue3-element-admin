@@ -1,5 +1,5 @@
 import { markRaw } from 'vue';
-import { createRouter, createWebHashHistory } from 'vue-router'; // createWebHashHistory, createWebHistory
+import { createRouter, createWebHistory } from 'vue-router'; // createWebHashHistory, createWebHistory
 import type { Router, RouteRecordRaw, RouteComponent } from 'vue-router';
 import { Help as IconHelp } from '@element-plus/icons-vue';
 
@@ -393,11 +393,13 @@ export const asyncRoutes:RouteRecordRaw[] = [
   { path: '/:pathMatch(.*)*', redirect: '/404', meta: { hidden: true }}
 ];
 
+console.log('BASE_URL=', import.meta.env);
+
 const createTheRouter = ():Router => createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  // history: createWebHashHistory(import.meta.env.BASE_URL),
   // 注意，如果要配置 HTML5 模式，则需要修改nginx配置，参考资料：
   // https://router.vuejs.org/zh/guide/essentials/history-mode.html
-  // history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),
   routes: constantRoutes
 });
