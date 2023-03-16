@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="box-card">
       <template #header>
-        <a class="link-type link-title" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/theme.html">
+        <a class="link-type link-title" target="_blank" href="https://vue3-element-admin-site.midfar.com/guide/advanced/theme.html">
           Theme documentation
         </a>
       </template>

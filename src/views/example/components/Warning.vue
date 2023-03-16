@@ -5,7 +5,7 @@
     effect, you can use a browser caching scheme such as localStorage. Or do not use keep-alive include to cache all
     pages directly. See details
     <a
-      href="https://panjiachen.github.io/vue-element-admin-site/guide/essentials/tags-view.html"
+      href="https://vue3-element-admin-site.midfar.com/guide/essentials/tags-view.html"
       target="_blank"
     >Document</a>
   </aside>

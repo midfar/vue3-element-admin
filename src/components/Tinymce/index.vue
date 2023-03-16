@@ -11,7 +11,7 @@
 import { defineComponent } from 'vue';
 /**
  * docs:
- * https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce
+ * https://vue3-element-admin-site.midfar.com/feature/component/rich-editor.html#tinymce
  */
 import editorImage from './components/EditorImage';
 import plugins from './plugins';

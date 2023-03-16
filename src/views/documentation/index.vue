@@ -1,11 +1,11 @@
 <template>
   <div class="app-container documentation-container">
     <a class="document-btn" target="_blank"
-      href="https://panjiachen.github.io/vue-element-admin-site/zh/guide/essentials/router-and-nav.html">国内文档</a>
+      href="https://vue3-element-admin-site.midfar.com/zh/guide/essentials/router-and-nav.html">国内文档</a>
     <a class="document-btn" target="_blank"
       href="https://github.com/midfar/vue3-element-admin">Github 仓库</a>
     <dropdown-menu class="document-btn" :items="articleList" title="系列文章" />
-    <!-- <a class="document-btn" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/zh/job/">内推招聘</a> -->
+    <!-- <a class="document-btn" target="_blank" href="https://vue3-element-admin-site.midfar.com/zh/job/">内推招聘</a> -->
   </div>
 </template>
 

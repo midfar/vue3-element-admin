@@ -2,7 +2,7 @@
  * @Author: Cherry 2858937488@qq.com
  * @Date: 2023-03-14 10:40:55
  * @LastEditors: Cherry 2858937488@qq.com
- * @LastEditTime: 2023-03-16 14:30:55
+ * @LastEditTime: 2023-03-16 13:47:40
  * @FilePath: \vue3-admin\vue3-element-admin\src\views\mydemo\WebSocketDemo.vue
  * @Description: websocket
 -->
@@ -81,7 +81,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Socket from '@/utils/webSocket.js';
+import Socket from '@/utils/websocket.js';
 import webSocketStore from '@/store/modules/webSocket';
 import userStore from '@/store/modules/user';
 import { ElMessage } from 'element-plus';

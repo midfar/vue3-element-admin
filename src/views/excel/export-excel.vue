@@ -8,7 +8,7 @@
       <el-button :loading="downloadLoading" style="margin:0 0 0 20px;" type="primary" :icon="IconDocument" @click="handleDownload">
         Export Excel
       </el-button>
-      <a href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html" target="_blank" style="margin-left:15px;">
+      <a href="https://vue3-element-admin-site.midfar.com/feature/component/excel.html" target="_blank" style="margin-left:15px;">
         <el-tag type="info" size="large">Documentation</el-tag>
       </a>
     </div>
