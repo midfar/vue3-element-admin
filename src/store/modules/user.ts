@@ -7,6 +7,7 @@ import permissionStore from './permission';
 
 export interface IUserState {
   token: string;
+  userId: string,
   name: string;
   avatar: string;
   introduction: string;
@@ -17,6 +18,7 @@ export default defineStore({
   id: 'user',
   state: ():IUserState => ({
     token: getToken(),
+    userId: '',
     name: '',
     avatar: '',
     introduction: '',

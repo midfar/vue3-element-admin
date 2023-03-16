@@ -385,6 +385,12 @@ export const asyncRoutes:RouteRecordRaw[] = [
         component: () => import('@/views/mydemo/StoreDemo.vue'),
         name: 'StoreDemo',
         meta: { title: 'StoreDemo', icon: 'lock' }
+      },
+      {
+        path: 'webSocket-demo',
+        component: () => import('@/views/mydemo/WebSocketDemo.vue'),
+        name: 'WebSocketDemo',
+        meta: { title: 'WebSocketDemo', icon: 'lock' }
       }
     ]
   },
