@@ -21,7 +21,7 @@
 
 - vue: https://cn.vuejs.org/
 - TypeScript：https://www.tslang.cn/index.html
-- element-plus：https://element-plus.gitee.io/zh-CN/
+- element-plus：https://element-plus.midfar.com/
 - pinia: https://pinia.web3doc.top/
 - vue-router: https://router.vuejs.org/zh/
 
