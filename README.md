@@ -22,7 +22,7 @@
 - vue: https://cn.vuejs.org/
 - TypeScript：https://www.tslang.cn/index.html
 - element-plus：https://element-plus.midfar.com/
-- pinia: https://pinia.web3doc.top/
+- pinia: https://pinia.vuejs.org/zh/
 - vue-router: https://router.vuejs.org/zh/
 
 注：开发前请务必阅读上述所有文档。应用至实际项目开发请修改 readme 内容。
