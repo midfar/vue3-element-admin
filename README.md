@@ -99,7 +99,7 @@ npm run lint
 
 我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建基线框架：
 
-- 联系维护人员。梁志远 liangzhiyuan001@chinasoftinc.com、冯超 fengchao008@chinasoftinc.com。
-- 提交 pr。
-- 修复 bug。
-- 分享实践案例。
+- 联系维护人员 midfar@qq.com
+- 提交 pr
+- 修复 bug
+- 分享实践案例
