@@ -89,7 +89,7 @@ export default defineComponent({
     },
     readerData(rawFile) {
       this.loading = true;
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const reader = new FileReader();
         reader.onload = e => {
           const data = e.target.result;

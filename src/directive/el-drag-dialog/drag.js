@@ -9,6 +9,7 @@ function loopFindParentDialog(el) {
 }
 
 export default {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   mounted(el, binding, vnode) {
     const dialogEl = loopFindParentDialog(el);
     const dialogHeaderEl = dialogEl.querySelector('.el-dialog__header');
@@ -80,7 +81,7 @@ export default {
         emitter.emit('elDialogDragDialog');
       };
 
-      document.onmouseup = function(e) {
+      document.onmouseup = function() {
         document.onmousemove = null;
         document.onmouseup = null;
       };

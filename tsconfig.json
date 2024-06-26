@@ -1,42 +1,11 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "noLib": false,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "strictFunctionTypes": false,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "preserveValueImports": false,
-    "allowJs": true,
-    "noEmit": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "lib": ["dom", "esnext", "dom.iterable", "scripthost"],
-    "noImplicitAny": false,
-    "skipLibCheck": true,
-    "removeComments": true,
-    "types": ["webpack-env", "vite/client"],
-    "paths": {
-      "@/*": ["src/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
     }
-  },
-  "include": [
-    "mock/**/*",
-    "src/**/*.ts",
-    "**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/**/*.d.ts",
-    "types/**/*.ts",
-  ],
-  "exclude": ["node_modules", "dist", "**/*.js", "**/*.md", "src/**/*.md"]
+  ]
 }

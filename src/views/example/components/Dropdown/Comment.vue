@@ -8,10 +8,10 @@
       <el-dropdown-menu class="no-padding">
         <el-dropdown-item>
           <el-radio-group v-model="comment_disabled" style="padding: 10px;">
-            <el-radio :label="true">
+            <el-radio :value="true">
               Close comment
             </el-radio>
-            <el-radio :label="false">
+            <el-radio :value="false">
               Open comment
             </el-radio>
           </el-radio-group>

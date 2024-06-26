@@ -139,6 +139,7 @@ export default defineComponent({
         // })
         done();
       },
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       sending: (file, xhr, formData) => {
         // formData.append('token', file.token);
         // formData.append('key', file.key);

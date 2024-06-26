@@ -92,7 +92,7 @@ export default defineComponent({
       const _URL = window.URL || window.webkitURL;
       const fileName = file.uid;
       this.listObj[fileName] = {};
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const img = new Image();
         img.src = _URL.createObjectURL(file);
         img.onload = function() {

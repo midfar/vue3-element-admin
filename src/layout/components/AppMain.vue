@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import store from '@/store';
 
 export default defineComponent({

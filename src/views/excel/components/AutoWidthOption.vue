@@ -2,10 +2,10 @@
   <div style="display:inline-block;">
     <label class="radio-label">Cell Auto-Width: </label>
     <el-radio-group v-model="autoWidth">
-      <el-radio :label="true" border>
+      <el-radio :value="true" border>
         True
       </el-radio>
-      <el-radio :label="false" border>
+      <el-radio :value="false" border>
         False
       </el-radio>
     </el-radio-group>

@@ -66,6 +66,11 @@ import type { FormItemRule } from 'element-plus';
 import type { IForm } from '@/types/element-plus';
 import store from '@/store';
 
+interface QueryType {
+  // 自定义key 任意字符串
+  [propname:string]:string
+}
+
 export default defineComponent({
   name: 'Login',
   components: { SocialSign },
@@ -143,24 +148,28 @@ export default defineComponent({
     },
     handleLogin() {
       (this.$refs.loginForm as IForm).validate(valid => {
-        if (valid) {
-          this.loading = true;
-          store.user().login(this.loginForm)
-            .then(() => {
-              this.$router.push({ path: this.redirect || '/', query: this.otherQuery });
-              this.loading = false;
-            })
-            .catch(() => {
-              this.loading = false;
-            });
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
+        return new Promise((resolve, reject) => {
+          if (valid) {
+            this.loading = true;
+            store.user().login(this.loginForm)
+              .then(() => {
+                this.$router.push({ path: this.redirect || '/', query: this.otherQuery });
+                this.loading = false;
+              })
+              .catch(() => {
+                this.loading = false;
+              }).finally(() => {
+                resolve();
+              });
+          } else {
+            console.log('error submit!!');
+            reject();
+          }
+        });
       });
     },
-    getOtherQuery(query) {
-      return Object.keys(query).reduce((acc, cur) => {
+    getOtherQuery(query:QueryType) {
+      return Object.keys(query).reduce((acc:QueryType, cur) => {
         if (cur !== 'redirect') {
           acc[cur] = query[cur];
         }

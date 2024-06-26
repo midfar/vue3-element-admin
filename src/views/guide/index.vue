@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Driver from 'driver.js'; // import driver.js
-import 'driver.js/dist/driver.min.css'; // import driver.js css
+import { driver } from 'driver.js'; // import driver.js
+import 'driver.js/dist/driver.css'; // import driver.js css
 import { defineComponent, markRaw } from 'vue';
 import steps from './steps';
 import { QuestionFilled } from '@element-plus/icons-vue';
@@ -27,12 +27,13 @@ export default defineComponent({
     };
   },
   mounted() {
-    this.driver = new Driver();
+    this.driver = driver({
+      steps
+    });
   },
   methods: {
     guide() {
-      this.driver.defineSteps(steps);
-      this.driver.start();
+      this.driver.drive();
     }
   }
 });

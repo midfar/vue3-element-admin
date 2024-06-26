@@ -482,7 +482,7 @@ export default defineComponent({
     // 设置图片源
     setSourceImg(file) {
       const fr = new FileReader();
-      fr.onload = e => {
+      fr.onload = () => {
         this.sourceImgUrl = fr.result;
         this.startCrop();
       };
@@ -594,7 +594,7 @@ export default defineComponent({
       scale.y = rY;
     },
     // 按钮按下开始向右旋转
-    startRotateRight(e) {
+    startRotateRight() {
       const { scale } = this;
       scale.rotateRight = true;
       const rotate = () => {
@@ -609,7 +609,7 @@ export default defineComponent({
       rotate();
     },
     // 按钮按下开始向左旋转
-    startRotateLeft(e) {
+    startRotateLeft() {
       const { scale } = this;
       scale.rotateLeft = true;
       const rotate = () => {
@@ -630,7 +630,7 @@ export default defineComponent({
       scale.rotateRight = false;
     },
     // 按钮按下开始放大
-    startZoomAdd(e) {
+    startZoomAdd() {
       const { scale } = this;
       scale.zoomAddOn = true;
       const zoom = () => {
@@ -645,11 +645,11 @@ export default defineComponent({
       zoom();
     },
     // 按钮松开或移开取消放大
-    endZoomAdd(e) {
+    endZoomAdd() {
       this.scale.zoomAddOn = false;
     },
     // 按钮按下开始缩小
-    startZoomSub(e) {
+    startZoomSub() {
       const { scale } = this;
       scale.zoomSubOn = true;
       const zoom = () => {
@@ -664,7 +664,7 @@ export default defineComponent({
       zoom();
     },
     // 按钮松开或移开取消缩小
-    endZoomSub(e) {
+    endZoomSub() {
       const { scale } = this;
       scale.zoomSubOn = false;
     },
