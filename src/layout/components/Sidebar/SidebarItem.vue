@@ -8,8 +8,10 @@
 
           <!-- <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" :title="onlyOneChild.meta.title" /> -->
           <template v-if="get2MetaIconPath(onlyOneChild, item)">
-            <svg-icon v-if="typeof get2MetaIconPath(onlyOneChild, item) === 'string'"
-              :icon-class="get2MetaIconPath(onlyOneChild, item)" />
+            <template v-if="typeof get2MetaIconPath(onlyOneChild, item) === 'string'">
+              <svg-icon :icon-class="get2MetaIconPath(onlyOneChild, item)" />
+              <span class="text text-one text-one-added">{{ onlyOneChild.meta.title }}</span>
+            </template>
             <component v-else :is="get2MetaIconPath(onlyOneChild, item)" class="svg-icon el-svg-icon" />
           </template>
           <template #title>
@@ -125,6 +127,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .link :deep(.el-menu-tooltip__trigger) {
+  position: relative;
   padding: 0;
 }
 

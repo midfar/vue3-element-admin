@@ -52,7 +52,8 @@ export default defineComponent({
       return store.settings().sidebarLogo;
     },
     isCollapse() {
-      return !this.sidebar.opened;
+      return true;
+      // return !this.sidebar.opened;
     }
   }
 });
