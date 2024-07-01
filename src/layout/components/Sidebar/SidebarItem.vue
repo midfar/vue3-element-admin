@@ -10,7 +10,7 @@
           <template v-if="get2MetaIconPath(onlyOneChild, item)">
             <template v-if="typeof get2MetaIconPath(onlyOneChild, item) === 'string'">
               <svg-icon :icon-class="get2MetaIconPath(onlyOneChild, item)" />
-              <span class="text text-one text-one-added">{{ onlyOneChild.meta.title }}</span>
+              <span v-if="isTopRoute" class="text text-one text-one-added">{{ onlyOneChild.meta.title }}</span>
             </template>
             <component v-else :is="get2MetaIconPath(onlyOneChild, item)" class="svg-icon el-svg-icon" />
           </template>
@@ -65,6 +65,10 @@ export default defineComponent({
     basePath: {
       type: String,
       default: ''
+    },
+    isTopRoute: { // 是否为顶层路由
+      type: Boolean,
+      default: false
     }
   },
   data() {
