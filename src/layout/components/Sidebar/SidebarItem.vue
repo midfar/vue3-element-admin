@@ -10,7 +10,7 @@
           <template v-if="get2MetaIconPath(onlyOneChild, item)">
             <template v-if="typeof get2MetaIconPath(onlyOneChild, item) === 'string'">
               <svg-icon :icon-class="get2MetaIconPath(onlyOneChild, item)" />
-              <span v-if="isTopRoute" class="text text-one text-one-added">{{ onlyOneChild.meta.title }}</span>
+              <span v-if="secondMenuPopup && isTopRoute" class="text text-one text-one-added">{{ onlyOneChild.meta.title }}</span>
             </template>
             <component v-else :is="get2MetaIconPath(onlyOneChild, item)" class="svg-icon el-svg-icon" />
           </template>
@@ -28,7 +28,7 @@
           <svg-icon v-if="typeof getMetaIconPath(item) === 'string'" :icon-class="getMetaIconPath(item)" />
           <component v-else :is="getMetaIconPath(item)" class="svg-icon el-svg-icon" />
         </template>
-        <svg-icon v-else icon-class="sub-el-icon" />
+        <!-- <svg-icon v-else icon-class="list" /> -->
         <span class="text text-two">{{ item.meta.title }}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
@@ -44,6 +44,8 @@ import { isExternal } from '@/utils/validate';
 // import Item from './Item';
 import AppLink from './Link';
 import FixiOSBug from './FixiOSBug';
+import { mapState } from 'pinia';
+import store from '@/store';
 
 export default defineComponent({
   name: 'SidebarItem',
@@ -78,6 +80,9 @@ export default defineComponent({
     return {};
   },
   computed: {
+    ...mapState(store.settings, {
+      secondMenuPopup: 'secondMenuPopup'
+    }),
     isItemHidden() {
       if (this.item.meta && this.item.meta.hidden) {
         return true;

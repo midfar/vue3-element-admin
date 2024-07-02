@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import defaultSettings from '@/settings';
 
-const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings;
+const { showSettings, tagsView, fixedHeader, sidebarLogo, secondMenuPopup } = defaultSettings;
 
 export default defineStore({
   id: 'settings',
@@ -10,7 +10,8 @@ export default defineStore({
     showSettings: showSettings,
     tagsView: tagsView,
     fixedHeader: fixedHeader,
-    sidebarLogo: sidebarLogo
+    sidebarLogo: sidebarLogo,
+    secondMenuPopup: secondMenuPopup
   }),
   getters: {},
   actions: {

@@ -39,6 +39,9 @@ export default defineComponent({
     ...mapState(store.permission, {
       permission_routes: 'routes'
     }),
+    ...mapState(store.settings, {
+      secondMenuPopup: 'secondMenuPopup'
+    }),
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
@@ -52,8 +55,10 @@ export default defineComponent({
       return store.settings().sidebarLogo;
     },
     isCollapse() {
-      return true;
-      // return !this.sidebar.opened;
+      if (this.secondMenuPopup) {
+        return true;
+      }
+      return !this.sidebar.opened;
     }
   }
 });

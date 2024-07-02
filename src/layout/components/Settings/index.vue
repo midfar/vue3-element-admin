@@ -23,6 +23,11 @@
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
 
+      <div class="drawer-item">
+        <span>左侧菜单子目录气泡显示</span>
+        <el-switch v-model="secondMenuPopup" class="drawer-switch" />
+      </div>
+
     </div>
   </div>
 </template>
@@ -69,6 +74,17 @@ export default defineComponent({
       set(val) {
         store.settings().changeSetting({
           key: 'sidebarLogo',
+          value: val
+        });
+      }
+    },
+    secondMenuPopup: {
+      get() {
+        return store.settings().secondMenuPopup;
+      },
+      set(val) {
+        store.settings().changeSetting({
+          key: 'secondMenuPopup',
           value: val
         });
       }
