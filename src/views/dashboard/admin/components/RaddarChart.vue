@@ -69,12 +69,12 @@ export default defineComponent({
             }
           },
           indicator: [
-            { name: 'Sales', max: 10000 },
-            { name: 'Administration', max: 20000 },
-            { name: 'Information Technology', max: 20000 },
-            { name: 'Customer Support', max: 20000 },
-            { name: 'Development', max: 20000 },
-            { name: 'Marketing', max: 20000 }
+            { name: 'Sales' },
+            { name: 'Administration' },
+            { name: 'Information Technology' },
+            { name: 'Customer Support' },
+            { name: 'Development' },
+            { name: 'Marketing' }
           ]
         },
         legend: {

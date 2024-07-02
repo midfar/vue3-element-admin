@@ -59,6 +59,7 @@
     }
 
     .svg-icon {
+      flex-shrink: 0;
       margin-right: 16px;
     }
 
@@ -108,6 +109,9 @@
     .submenu-title-noDropdown {
       padding: 0 !important;
       position: relative;
+      .text-one-added {
+        display: none;
+      }
 
       .el-tooltip {
         padding: 0 !important;
@@ -205,6 +209,10 @@
 
   .nest-menu .el-sub-menu>.el-sub-menu__title,
   .el-menu-item {
+    .text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     &:hover {
       // you can use var(--sub-menu-hover)
       background-color: var(--menu-hover) !important;

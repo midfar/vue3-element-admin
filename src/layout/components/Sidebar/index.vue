@@ -5,7 +5,7 @@
       <el-menu class="left-menu" :default-active="activeMenu" :collapse="isCollapse"
         :background-color="variables.menuBg" :text-color="variables.menuText" :unique-opened="false"
         :active-text-color="variables.menuActiveText" :collapse-transition="false" mode="vertical">
-        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" :is-top-route="true" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -39,6 +39,9 @@ export default defineComponent({
     ...mapState(store.permission, {
       permission_routes: 'routes'
     }),
+    ...mapState(store.settings, {
+      secondMenuPopup: 'secondMenuPopup'
+    }),
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
@@ -52,6 +55,9 @@ export default defineComponent({
       return store.settings().sidebarLogo;
     },
     isCollapse() {
+      if (this.secondMenuPopup) {
+        return true;
+      }
       return !this.sidebar.opened;
     }
   }

@@ -4,6 +4,7 @@ interface ISettings {
   tagsView: boolean;
   fixedHeader: boolean;
   sidebarLogo: boolean;
+  secondMenuPopup: boolean;
   errorLog: string | string[];
 }
 
@@ -33,6 +34,12 @@ const settings:ISettings = {
    * @description Whether show the logo in sidebar
    */
   sidebarLogo: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description 左侧菜单子目录气泡显示
+   */
+  secondMenuPopup: false,
 
   /**
    * @type {string | array} 'production' | ['production', 'development']
