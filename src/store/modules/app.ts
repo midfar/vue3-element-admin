@@ -7,7 +7,7 @@ interface IAppState {
     withoutAnimation: boolean;
   };
   device: 'desktop' | 'mobile';
-  size: string;
+  size: 'large' | 'default' | 'small';
 }
 
 export default defineStore({
@@ -18,7 +18,7 @@ export default defineStore({
       withoutAnimation: false
     },
     device: 'desktop',
-    size: Cookies.get('size') || 'medium'
+    size: Cookies.get('size') || 'default'
   }),
   getters: {},
   actions: {

@@ -24,7 +24,7 @@ export default defineComponent({
       sizeOptions: [
         { label: 'Default', value: 'default' },
         { label: 'Large', value: 'large' },
-        { label: 'small', value: 'default' }
+        { label: 'Small', value: 'small' }
       ]
     };
   },
@@ -35,7 +35,6 @@ export default defineComponent({
   },
   methods: {
     handleSetSize(size) {
-      this.$ELEMENT.size = size;
       store.app().setSize(size);
       this.refreshView();
       ElMessage({
