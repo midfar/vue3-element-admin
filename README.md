@@ -85,15 +85,9 @@ npm run lint
 
 现代浏览器。
 
-| IE/Edge          | Firefox         | Chrome          | Safari          | 
-| ---------------- | --------------- | --------------- | --------------- | 
-| IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | 
-
-## TODO
-
-当前问题
-
-- 暂未配置git提交规范。
+| Chrome          | Edge            | Firefox         | Safari          | 
+| --------------- | --------------- | --------------- | --------------- | 
+| Chrome ≥ 85     | Edge ≥ 85       | Firefox ≥ 79    | Safari ≥ 14.1   | 
 
 ## 参与贡献
 
