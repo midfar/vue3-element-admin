@@ -60,7 +60,7 @@ export const constantRoutes:RouteRecordRaw[] = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '首页', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -72,7 +72,7 @@ export const constantRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/documentation/index.vue'),
         name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+        meta: { title: '文档', icon: 'documentation', affix: true }
       }
     ]
   },
@@ -85,7 +85,7 @@ export const constantRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/guide/index.vue'),
         name: 'Guide',
-        meta: { title: 'Guide', icon: 'guide', noCache: true }
+        meta: { title: '引导页', icon: 'guide', noCache: true }
       }
     ]
   },
@@ -99,7 +99,7 @@ export const constantRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/profile/index.vue'),
         name: 'Profile',
-        meta: { title: 'Profile', icon: 'user', noCache: true }
+        meta: { title: '个人中心', icon: 'user', noCache: true }
       }
     ]
   }
@@ -119,7 +119,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
     name: 'Permission',
     meta: {
       alwaysShow: true, // will always show the root menu
-      title: 'Permission',
+      title: '权限测试页',
       icon: 'lock',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
@@ -129,7 +129,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         component: () => import('@/views/permission/page.vue'),
         name: 'PagePermission',
         meta: {
-          title: 'Page Permission',
+          title: '页面权限',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
@@ -138,7 +138,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         component: () => import('@/views/permission/directive.vue'),
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: '指令权限'
           // if do not set roles, means: this page does not require permission
         }
       },
@@ -147,7 +147,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         component: () => import('@/views/permission/role.vue'),
         name: 'RolePermission',
         meta: {
-          title: 'Role Permission',
+          title: '角色权限',
           roles: ['admin']
         }
       }
@@ -162,7 +162,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/icons/index.vue'),
         name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon', noCache: true }
+        meta: { title: '图标', icon: 'icon', noCache: true }
       }
     ]
   },
@@ -179,7 +179,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
     redirect: '/example/list',
     name: 'Example',
     meta: {
-      title: 'Example',
+      title: '综合示例',
       icon: markRaw(IconHelp)
     },
     children: [
@@ -187,19 +187,19 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'create',
         component: () => import('@/views/example/create.vue'),
         name: 'CreateArticle',
-        meta: { title: 'Create Article', icon: 'edit' }
+        meta: { title: '创建文章', icon: 'edit' }
       },
       {
         path: 'edit/:id(\\d+)',
         component: () => import('@/views/example/edit.vue'),
         name: 'EditArticle',
-        meta: { hidden: true, title: 'Edit Article', noCache: true, activeMenu: '/example/list' }
+        meta: { hidden: true, title: '编辑文章', noCache: true, activeMenu: '/example/list' }
       },
       {
         path: 'list',
         component: () => import('@/views/example/list.vue'),
         name: 'ArticleList',
-        meta: { title: 'Article List', icon: 'list' }
+        meta: { title: '文章列表', icon: 'list' }
       }
     ]
   },
@@ -212,7 +212,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/tab/index.vue'),
         name: 'Tab',
-        meta: { title: 'Tab', icon: 'tab' }
+        meta: { title: 'Tabs标签页', icon: 'tab' }
       }
     ]
   },
@@ -223,7 +223,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
     redirect: 'noRedirect',
     name: 'ErrorPages',
     meta: {
-      title: 'Error Pages',
+      title: '错误页面',
       icon: '404'
     },
     children: [
@@ -250,7 +250,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'log',
         component: () => import('@/views/error-log/index.vue'),
         name: 'ErrorLog',
-        meta: { title: 'Error Log', icon: 'bug' }
+        meta: { title: '错误日志', icon: 'bug' }
       }
     ]
   },
@@ -269,25 +269,25 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'export-excel',
         component: () => import('@/views/excel/export-excel.vue'),
         name: 'ExportExcel',
-        meta: { title: 'Export Excel' }
+        meta: { title: '导出 Excel' }
       },
       {
         path: 'export-selected-excel',
         component: () => import('@/views/excel/select-excel.vue'),
         name: 'SelectExcel',
-        meta: { title: 'Export Selected' }
+        meta: { title: '导出 已选择项' }
       },
       {
         path: 'export-merge-header',
         component: () => import('@/views/excel/merge-header.vue'),
         name: 'MergeHeader',
-        meta: { title: 'Merge Header' }
+        meta: { title: '导出 多级表头' }
       },
       {
         path: 'upload-excel',
         component: () => import('@/views/excel/upload-excel.vue'),
         name: 'UploadExcel',
-        meta: { title: 'Upload Excel' }
+        meta: { title: '上传 Excel' }
       }
     ]
   },
@@ -303,7 +303,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'download',
         component: () => import('@/views/zip/index.vue'),
         name: 'ExportZip',
-        meta: { title: 'Export Zip' }
+        meta: { title: '导出 Zip' }
       }
     ]
   },
@@ -335,7 +335,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/theme/index.vue'),
         name: 'Theme',
-        meta: { title: 'Theme', icon: 'theme' }
+        meta: { title: '主题', icon: 'theme' }
       }
     ]
   },
@@ -348,7 +348,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'index',
         component: () => import('@/views/clipboard/index.vue'),
         name: 'ClipboardDemo',
-        meta: { title: 'Clipboard', icon: 'clipboard' }
+        meta: { title: '剪贴板', icon: 'clipboard' }
       }
     ]
   },
@@ -359,7 +359,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
     children: [
       {
         path: 'https://element-plus.midfar.com',
-        meta: { title: 'External Link', icon: 'link' },
+        meta: { title: '外链', icon: 'link' },
         redirect: ''
       }
     ]
@@ -370,7 +370,7 @@ export const asyncRoutes:RouteRecordRaw[] = [
     component: Layout,
     name: 'MyDemo',
     meta: {
-      title: 'MyDemo',
+      title: '我的示例',
       icon: 'component'
     },
     children: [
@@ -378,13 +378,13 @@ export const asyncRoutes:RouteRecordRaw[] = [
         path: 'element-demo',
         component: () => import('@/views/mydemo/ElementDemo.vue'),
         name: 'ElementDemo',
-        meta: { title: 'ElementDemo', icon: 'skill' }
+        meta: { title: 'Element 示例', icon: 'skill' }
       },
       {
         path: 'store-demo',
         component: () => import('@/views/mydemo/StoreDemo.vue'),
         name: 'StoreDemo',
-        meta: { title: 'StoreDemo', icon: 'lock' }
+        meta: { title: 'Store 示例', icon: 'lock' }
       }
     ]
   },

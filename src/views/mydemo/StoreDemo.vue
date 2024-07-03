@@ -40,3 +40,11 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.app-container {
+  div {
+    padding: 5px 0;
+  }
+}
+</style>

@@ -11,7 +11,7 @@ NProgress.configure({ showSpinner: false }); // NProgress Configuration
 const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 
 router.beforeEach(async (to, from, next) => {
-  console.log('router.beforeEach', to.path, from.path);
+  // console.log('router.beforeEach', to.path, from.path);
   // start progress bar
   NProgress.start();
 
