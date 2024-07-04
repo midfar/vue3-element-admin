@@ -60,7 +60,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .drag-select {
-  :deep(.sortable-ghost) {
+  :deep(.sortable-ghost .el-tag) {
     opacity: .8;
     color: #fff !important;
     background: #42b983 !important;
