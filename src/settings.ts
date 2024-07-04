@@ -9,7 +9,7 @@ interface ISettings {
 }
 
 const settings:ISettings = {
-  title: 'Vue3 ElementPlus Admin',
+  title: 'Vue3 Element Admin',
 
   /**
    * @type {boolean} true | false

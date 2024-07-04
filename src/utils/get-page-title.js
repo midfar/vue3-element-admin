@@ -1,6 +1,6 @@
 import defaultSettings from '@/settings';
 
-const title = defaultSettings.title || 'Vue3 ElementPlus Admin';
+const title = defaultSettings.title || 'Vue3 Element Admin';
 
 export default function getPageTitle(pageTitle) {
   if (pageTitle) {
