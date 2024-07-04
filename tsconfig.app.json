@@ -10,6 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "noImplicitAny": false,
+    "allowJs": true
   }
 }
