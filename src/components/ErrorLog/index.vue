@@ -10,7 +10,7 @@
       <template v-slot:title>
         <div class="text-title">
           <span style="padding-right: 10px;">Error Log</span>
-          <el-button size="small" type="primary" icon="el-icon-delete" @click="clearAll">Clear All</el-button>
+          <el-button size="small" type="primary" :icon="IconDelete" @click="clearAll">Clear All</el-button>
         </div>
       </template>
       <el-table :data="errorLogs" border>
@@ -49,13 +49,15 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, markRaw } from 'vue';
 import store from '@/store';
+import { Delete as IconDelete } from '@element-plus/icons-vue';
 
 export default defineComponent({
   name: 'ErrorLog',
   data() {
     return {
+      IconDelete: markRaw(IconDelete),
       dialogTableVisible: false
     };
   },
