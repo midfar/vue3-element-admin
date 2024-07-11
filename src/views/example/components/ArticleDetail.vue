@@ -81,6 +81,7 @@ import Tinymce from '@/components/Tinymce';
 import Upload from '@/components/Upload/SingleImage3';
 import MDinput from '@/components/MDinput';
 import Sticky from '@/components/Sticky'; // 粘性header组件
+import store from '@/store';
 import { validURL } from '@/utils/validate';
 import { fetchArticle } from '@/api/article';
 import { searchUser } from '@/api/remote-search';
@@ -206,7 +207,7 @@ export default defineComponent({
     setTagsViewTitle() {
       const title = 'Edit Article';
       const route = Object.assign({}, this.tempRoute, { title: `${title}-${this.postForm.id}` });
-      this.$store.dispatch('tagsView/updateVisitedView', route);
+      store.tagsView().updateVisitedView(route);
     },
     setPageTitle() {
       const title = 'Edit Article';

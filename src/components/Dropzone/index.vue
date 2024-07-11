@@ -130,7 +130,7 @@ export default defineComponent({
       },
       accept: (file, done) => {
         /* 七牛*/
-        // const token = this.$store.getters.token;
+        // const token = store.user().token;
         // getToken(token).then(response => {
         //   file.token = response.data.qiniu_token;
         //   file.key = response.data.qiniu_key;
