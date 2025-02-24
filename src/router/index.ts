@@ -404,16 +404,11 @@ const createTheRouter = ():Router => createRouter({
   routes: constantRoutes
 });
 
-interface RouterPro extends Router {
-  matcher: unknown;
-}
-
-const router = createTheRouter() as RouterPro;
+const router:Router = createTheRouter();
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  const newRouter = createTheRouter() as RouterPro;
-  router.matcher = newRouter.matcher; // reset router
+  router.clearRoutes();
 }
 
 export default router;

@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url';
 import path from 'node:path';
+import fs from 'fs';
 
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -22,6 +23,21 @@ export default defineConfig(({ command, mode }) => {
   // According to the project configuration. Can be configured in the .env file
   const prodMock = true;
 
+  // 解决终端 optimized dependencies changed. reloading 问题
+  const optimizeDepsElementPlusIncludes = ['element-plus/es'];
+  fs.readdirSync('node_modules/element-plus/es/components').map((dirname) => {
+    fs.access(
+      `node_modules/element-plus/es/components/${dirname}/style/css.mjs`,
+      (err) => {
+        if (!err) {
+          optimizeDepsElementPlusIncludes.push(
+            `element-plus/es/components/${dirname}/style/css`
+          );
+        }
+      }
+    );
+  });
+
   return {
     base: '/', // 注意，必须以"/"结尾，BASE_URL配置
     define: {
@@ -32,6 +48,9 @@ export default defineConfig(({ command, mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       },
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
+    },
+    optimizeDeps: {
+      include: optimizeDepsElementPlusIncludes
     },
     plugins: [
       vue(),
