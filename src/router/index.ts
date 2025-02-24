@@ -404,11 +404,17 @@ const createTheRouter = ():Router => createRouter({
   routes: constantRoutes
 });
 
-const router:Router = createTheRouter();
+interface RouterPro extends Router {
+  matcher: unknown;
+}
+
+const router = createTheRouter() as RouterPro;
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  router.clearRoutes();
+  // router.clearRoutes(); RangeError: Maximum call stack size exceeded
+  const newRouter = createTheRouter() as RouterPro;
+  router.matcher = newRouter.matcher; // reset router
 }
 
 export default router;
