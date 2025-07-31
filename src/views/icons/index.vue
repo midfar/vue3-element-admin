@@ -62,7 +62,8 @@ export default defineComponent({
   methods: {
     generateIconCode(symbol) {
       // console.log('generateIconCode symbol=', symbol);
-      return `<svg-icon icon-class="${symbol}" />`;
+      //return `<svg-icon icon-class="${symbol}" />`;
+      return '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-${symbol}"></use></svg>';
     },
     generateElementIconCode(symbol) {
       // console.log('generateElementIconCode symbol=', symbol);
