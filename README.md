@@ -27,11 +27,11 @@
 
 ## 推荐的 IDE 工具和插件
 
-[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (需禁用旧插件 Vetur、Volar ) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (需禁用旧插件 Vetur、Volar )
 
 ## Vite 构建工具配置
 
-参考 [Vite 配置](https://vitejs.dev/config/).
+参考 [Vite 配置](https://vitejs.dev/config/)
 
 ## 主要结构
 
