@@ -46,7 +46,9 @@ export default defineStore({
     },
     delCachedView(view) {
       const index = this.cachedViews.indexOf(view.name);
-      index > -1 && this.cachedViews.splice(index, 1);
+      if (index > -1) {
+        this.cachedViews.splice(index, 1);
+      }
     },
 
     delOthersViews(view) {

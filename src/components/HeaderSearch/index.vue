@@ -55,11 +55,15 @@ export default defineComponent({
     click() {
       this.show = !this.show;
       if (this.show) {
-        this.$refs.headerSearchSelect && this.$refs.headerSearchSelect.focus();
+        if (this.$refs.headerSearchSelect) {
+          this.$refs.headerSearchSelect.focus();
+        }
       }
     },
     close() {
-      this.$refs.headerSearchSelect && this.$refs.headerSearchSelect.blur();
+      if (this.$refs.headerSearchSelect) {
+        this.$refs.headerSearchSelect.blur();
+      }
       this.options = [];
       this.show = false;
     },

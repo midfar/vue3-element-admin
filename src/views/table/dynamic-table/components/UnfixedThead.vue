@@ -2,13 +2,13 @@
   <div class="app-container">
     <div class="filter-container">
       <el-checkbox-group v-model="formThead">
-        <el-checkbox label="apple">
+        <el-checkbox value="apple">
           apple
         </el-checkbox>
-        <el-checkbox label="banana">
+        <el-checkbox value="banana">
           banana
         </el-checkbox>
-        <el-checkbox label="orange">
+        <el-checkbox value="orange">
           orange
         </el-checkbox>
       </el-checkbox-group>

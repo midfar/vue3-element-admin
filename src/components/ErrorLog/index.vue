@@ -7,7 +7,7 @@
     </el-badge>
 
     <el-dialog v-model="dialogTableVisible" width="80%" append-to-body>
-      <template v-slot:title>
+      <template v-slot:header>
         <div class="text-title">
           <span style="padding-right: 10px;">Error Log</span>
           <el-button size="small" type="primary" :icon="IconDelete" @click="clearAll">Clear All</el-button>

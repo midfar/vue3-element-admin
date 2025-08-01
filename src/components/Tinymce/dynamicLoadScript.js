@@ -8,7 +8,7 @@ function loadedTinymce() {
 
 const dynamicLoadScript = (src, callback) => {
   const existingScript = document.getElementById(src);
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+
   const cb = callback || function() {};
 
   if (!existingScript) {

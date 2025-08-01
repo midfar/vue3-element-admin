@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$attrs" />
-  <svg v-else :class="svgClass" aria-hidden="true" v-on="$attrs">
+  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="eventHandlers" />
+  <svg v-else :class="svgClass" aria-hidden="true" v-on="eventHandlers">
     <use :xlink:href="iconName" />
   </svg>
 </template>
@@ -41,6 +41,15 @@ export default defineComponent({
         mask: `url(${this.iconClass}) no-repeat 50% 50%`,
         '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`
       };
+    },
+    eventHandlers() {
+      const events = {};
+      for (const key in this.$attrs) {
+        if (key.startsWith('on') && typeof this.$attrs[key] === 'function') {
+          events[key] = this.$attrs[key];
+        }
+      }
+      return events;
     }
   }
 });

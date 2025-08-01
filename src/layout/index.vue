@@ -59,11 +59,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixin.scss";
-// @import "@/styles/variables.module.scss";
+@use "@/styles/mixin.scss";
+// @use "@/styles/variables.module.scss";
 
 .app-wrapper {
-  @include clearfix;
+  @include mixin.clearfix;
   position: relative;
   height: 100%;
   width: 100%;

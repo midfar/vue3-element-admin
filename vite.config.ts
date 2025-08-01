@@ -13,14 +13,14 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 import svgSpritePlugin from '@pivanov/vite-plugin-svg-sprite';
-//import svgSprites from 'rollup-plugin-svg-sprites';
+// import svgSprites from 'rollup-plugin-svg-sprites';
 import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   console.log('vite.config defineConfig', command, mode);
   const env = loadEnv(mode, process.cwd(), '');
-  console.log('vite.config env.NODE_ENV=', env.NODE_ENV);
+  console.log('vite.config env.VITE_ENV=', env.VITE_ENV);
   // According to the project configuration. Can be configured in the .env file
   const prodMock = true;
 
@@ -41,9 +41,6 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     base: '/', // 注意，必须以"/"结尾，BASE_URL配置
-    define: {
-      'process.env': env
-    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -64,9 +61,9 @@ export default defineConfig(({ command, mode }) => {
       }),
       svgSpritePlugin({
         iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
-  
+
         symbolId: 'icon-[name]',
-  
+
         inject: 'body-last' // 'body-prepend' | 'body-append' | false
       }),
       // https://openbase.com/js/vite-plugin-mock
@@ -92,7 +89,7 @@ export default defineConfig(({ command, mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api-test/, ''),
           headers: {
-            Cookie: env.VUE_APP_COOKIE
+            Cookie: env.VITE_COOKIE
           }
         }
       }

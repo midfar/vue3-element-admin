@@ -9,7 +9,7 @@ import type { App } from 'vue';
 const { errorLog: needErrorLog } = settings;
 
 function checkNeed() {
-  const env = process.env.NODE_ENV || '';
+  const env = import.meta.env.VITE_ENV || '';
   if (isString(needErrorLog)) {
     return env === needErrorLog;
   }

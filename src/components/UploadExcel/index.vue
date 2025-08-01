@@ -18,12 +18,12 @@ export default defineComponent({
   props: {
     beforeUpload: {
       type: Function,
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
+
       default: () => {}
     },
     onSuccess: {
       type: Function,
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
+
       default: () => {}
     }
   },
@@ -40,7 +40,9 @@ export default defineComponent({
     generateData({ header, results }) {
       this.excelData.header = header;
       this.excelData.results = results;
-      this.onSuccess && this.onSuccess(this.excelData);
+      if (this.onSuccess) {
+        this.onSuccess(this.excelData);
+      }
     },
     handleDrop(e) {
       e.stopPropagation();

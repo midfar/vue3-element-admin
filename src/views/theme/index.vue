@@ -92,7 +92,7 @@ export default defineComponent({
       IconSearch: markRaw(IconSearch),
       theme: false,
       tags: [
-        { name: 'Tag One', type: '' },
+        { name: 'Tag One', type: 'primary' },
         { name: 'Tag Two', type: 'info' },
         { name: 'Tag Three', type: 'success' },
         { name: 'Tag Four', type: 'warning' },

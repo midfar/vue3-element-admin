@@ -259,7 +259,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixin.scss";
+@use "@/styles/mixin.scss";
 
 .createPost-container {
   position: relative;
@@ -275,7 +275,7 @@ export default defineComponent({
 
     .postInfo-container {
       position: relative;
-      @include clearfix;
+      @include mixin.clearfix;
       margin-bottom: 10px;
 
       .postInfo-container-item {

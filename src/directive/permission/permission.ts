@@ -13,7 +13,9 @@ function checkPermission(el, binding) {
       });
 
       if (!hasPermission) {
-        el.parentNode && el.parentNode.removeChild(el);
+        if (el.parentNode) {
+          el.parentNode.removeChild(el);
+        }
       }
     }
   } else {

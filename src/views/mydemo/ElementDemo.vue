@@ -11,8 +11,8 @@ import {
 import store from '@/store';
 console.log('store=', store);
 
-console.log('HomeView NODE_ENV=', process.env.NODE_ENV);
-console.log('HomeView VUE_APP_BASE_API=', process.env.VUE_APP_BASE_API);
+console.log('HomeView VITE_ENV=', import.meta.env.VITE_ENV);
+console.log('HomeView VITE_BASE_API=', import.meta.env.VITE_BASE_API);
 
 const useAppStore = store.app();
 

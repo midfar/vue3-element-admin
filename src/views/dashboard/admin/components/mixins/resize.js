@@ -47,10 +47,14 @@ export default defineComponent({
     },
     initSidebarResizeEvent() {
       this.sidebarElm = document.getElementsByClassName('sidebar-container')[0];
-      this.sidebarElm && this.sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler);
+      if (this.sidebarElm) {
+        this.sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler);
+      }
     },
     destroySidebarResizeEvent() {
-      this.sidebarElm && this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler);
+      if (this.sidebarElm) {
+        this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler);
+      }
     }
   }
 });

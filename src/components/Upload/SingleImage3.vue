@@ -88,11 +88,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixin.scss";
+@use "@/styles/mixin.scss";
 .upload-container {
   width: 100%;
   position: relative;
-  @include clearfix;
+  @include mixin.clearfix;
   .image-uploader {
     width: 35%;
     float: left;
