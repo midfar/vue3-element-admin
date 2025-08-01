@@ -43,7 +43,7 @@
     "eslint-plugin-vue": "^9.23.0",
     "mockjs": "^1.1.0",
     "npm-run-all2": "^6.2.0",
-    "rollup-plugin-svg-sprites": "^1.2.5",
+    "@pivanov/vite-plugin-svg-sprite": "^3.1.3",
     "sass": "^1.77.6",
     "typescript": "~5.4.0",
     "unplugin-auto-import": "^0.17.6",

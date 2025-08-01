@@ -12,7 +12,8 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
-import svgSprites from 'rollup-plugin-svg-sprites';
+import svgSpritePlugin from '@pivanov/vite-plugin-svg-sprite';
+//import svgSprites from 'rollup-plugin-svg-sprites';
 import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vitejs.dev/config/
@@ -61,13 +62,12 @@ export default defineConfig(({ command, mode }) => {
       Components({
         resolvers: [ElementPlusResolver()]
       }),
-      svgSprites({
-        vueComponent: true,
-        exclude: ['node_modules/**'],
-        symbolId(filePath) {
-          const filename = path.basename(filePath);
-          return 'icon-' + filename.substring(0, filename.lastIndexOf('.'));
-        }
+      svgSpritePlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
+  
+        symbolId: 'icon-[name]',
+  
+        inject: 'body-last' // 'body-prepend' | 'body-append' | false
       }),
       // https://openbase.com/js/vite-plugin-mock
       viteMockServe({

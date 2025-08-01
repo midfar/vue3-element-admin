@@ -9,6 +9,7 @@ import SvgIcon from './icons'; // icon
 import './permission'; // permission control
 import vPermission from './directive/permission/index'; // permission control
 import { checkEnableLogs } from './utils/error-log'; // error log
+import 'virtual:svg-sprite';
 
 const app = createApp(App);
 setupStore(app);
