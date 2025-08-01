@@ -14,14 +14,12 @@
 
 [vue3 element admin](https://vue3-element-admin.midfar.com/)
 
-[element plus](https://element-plus.midfar.com/)
-
 ## 准备
 开发前请确保熟悉并掌握以下技术栈：
 
 - vue: https://cn.vuejs.org/
 - TypeScript：https://www.tslang.cn/index.html
-- element-plus：https://element-plus.midfar.com/
+- element-plus：https://cn.element-plus.org/
 - pinia: https://pinia.vuejs.org/zh/
 - vue-router: https://router.vuejs.org/zh/
 
