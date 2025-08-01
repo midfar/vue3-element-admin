@@ -1,3 +1,115 @@
+# Vue3 Element Admin Template
+
+## Introduction
+
+This template is built with the latest Vue 3 framework and the Element Plus UI library. It uses Vite as the build tool, Pinia for state management, Vue Router for routing, Mock.js for data simulation, and integrates TypeScript.
+The functionality is ported from **Vue Element Admin**. For detailed usage instructions, please refer to [this documentation](https://vue3-element-admin-site.midfar.com/guide/essentials/router-and-nav.html).
+
+## Features
+
+- **Latest Technology Stack**: Developed using cutting-edge front-end technologies such as Vue 3 and Vite 3
+- **TypeScript**: A superset of JavaScript designed for application-scale development
+- **Mock Data**: Built-in mock data solution
+- **Permission System**: Comprehensive dynamic route and permission generation
+- **Components**: Multiple commonly used components are re-encapsulated for ease of use
+
+## Live Demo
+
+[Vue3 Element Admin](https://vue3-element-admin.midfar.com/)
+
+## Prerequisites
+
+Before development, please ensure you are familiar with and proficient in the following technologies:
+
+- Vue: https://vuejs.org/
+- TypeScript: https://www.typescriptlang.org/
+- Element Plus: https://element-plus.org/
+- Pinia: https://pinia.vuejs.org/
+- Vue Router: https://router.vuejs.org/
+
+> Note: Make sure to read all of the above documentation before starting development.
+> For production projects, please update this README accordingly.
+
+## Recommended IDE & Plugins
+
+[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar)  
+(Disable old plugins such as Vetur and the legacy Volar)
+
+## Vite Build Tool Configuration
+
+Refer to the [Vite Configuration Guide](https://vitejs.dev/config/)
+
+## Project Structure
+
+```
+- mock               // Mock data
+- public
+- src
+  - components       // Common components
+  - views            // Views (pages)
+    - tableTemplates // Example module
+      - index.ts
+    - login          // Login module
+      - index.vue
+  - settings.ts      // Global configuration
+  - main.ts          // Entry file
+- types              // TypeScript types
+- package.json
+- CODE_OF_CONDUCT.md // Code of conduct for framework development
+- README.md          // User guide for the framework
+```
+
+## Usage
+
+### Ensure your local Node.js version is >= 20  
+This project is tested with Node.js v20.18.0.
+
+```sh
+node -v
+```
+
+### Install dependencies
+
+```sh
+npm install
+```
+
+### Development mode (connect to test server)
+
+```sh
+npm run dev:test
+```
+
+### Build for test server
+
+```sh
+npm run build:test
+```
+
+### Code linting with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
+
+## Supported Browsers
+
+Modern browsers:
+
+| Chrome          | Edge            | Firefox         | Safari          | 
+| --------------- | --------------- | --------------- | --------------- | 
+| Chrome ≥ 85     | Edge ≥ 85       | Firefox ≥ 79    | Safari ≥ 14.1   | 
+
+## Contributing
+
+We warmly welcome your contributions! You can help improve this base framework in the following ways:
+
+- Contact the maintainer at **midfar@qq.com**
+- Submit a PR
+- Fix bugs
+- Share best practices and case studies
+
+
 ## 简介
 
 这个模板使用了最新的 vue3 和 element-plus UI 框架，vite 构建工具、pinia 状态管理、vue-router 路由管理、mockjs 数据模拟，并集成了 typescript。功能从 Vue Element Admin 移植而来，详细使用可以参考[该文档](https://vue3-element-admin-site.midfar.com/zh/guide/essentials/router-and-nav.html)。
