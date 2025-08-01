@@ -1,6 +1,6 @@
 <template>
   <div class="components-container">
-    <drag-select v-model="value" style="width:500px;" multiple placeholder="请选择" @change="handleChange">
+    <drag-select v-model="value" style="width:500px;" multiple placeholder="请选择一种水果" @change="handleChange">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
     </drag-select>
 

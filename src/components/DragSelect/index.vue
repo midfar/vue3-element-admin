@@ -1,5 +1,5 @@
 <template>
-  <el-select ref="dragSelect" v-model="selectVal" v-bind="$attrs" class="drag-select" multiple v-on="$attrs">
+  <el-select ref="dragSelect" v-model="selectVal" class="drag-select" multiple :placeholder="placeholder" :style="style">
     <slot />
   </el-select>
 </template>
@@ -48,7 +48,9 @@ export default defineComponent({
           // Detail see : https://github.com/RubaXa/Sortable/issues/1012
         },
         onEnd: evt => {
+          // console.log(`move onEnd length=${length}, oldIndex=${evt.oldIndex}, newIndex=${evt.newIndex}`);
           const theValue = this.modelValue;
+          // FIXME el-select最后有一个隐藏的节点，会导致位置不正确
           const targetRow = theValue.splice(evt.oldIndex, 1)[0];
           theValue.splice(evt.newIndex, 0, targetRow);
         }
