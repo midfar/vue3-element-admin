@@ -124,16 +124,16 @@
           <el-input v-model="temp.remark" :autosize="{ minRows: 2, maxRows: 4}" type="textarea" placeholder="Please input" />
         </el-form-item>
       </el-form>
-        <template #footer>
-      <div class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">
-          Cancel
-        </el-button>
-        <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
-          Confirm
-        </el-button>
-      </div>
-        </template>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">
+            Cancel
+          </el-button>
+          <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
+            Confirm
+          </el-button>
+        </div>
+      </template>
     </el-dialog>
 
     <el-dialog v-model="dialogPvVisible" title="Reading statistics">
@@ -141,11 +141,11 @@
         <el-table-column prop="key" label="Channel" />
         <el-table-column prop="pv" label="Pv" />
       </el-table>
-        <template #footer>
-          <span class="dialog-footer">
-        <el-button type="primary" @click="dialogPvVisible = false">Confirm</el-button>
-      </span>
-        </template>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button type="primary" @click="dialogPvVisible = false">Confirm</el-button>
+        </span>
+      </template>
     </el-dialog>
   </div>
 </template>

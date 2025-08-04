@@ -105,6 +105,9 @@ export default defineComponent({
     }
     this.$emit('mountedCallback');
   },
+  unmounted() {
+    cancelAnimationFrame(this.rAF);
+  },
   methods: {
     start() {
       this.localStartVal = this.startVal;
@@ -185,9 +188,6 @@ export default defineComponent({
       }
       return this.prefix + x1 + x2 + this.suffix;
     }
-  },
-  unmounted() {
-    cancelAnimationFrame(this.rAF);
   }
 });
 </script>

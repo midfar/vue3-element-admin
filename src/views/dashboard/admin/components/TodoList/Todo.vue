@@ -6,7 +6,7 @@
       <button class="destroy" @click="deleteTodo(todo)" />
     </div>
     <input v-show="editing" v-focus="editing" :value="todo.text" class="edit" @keyup.enter="doneEdit"
-      @keyup.esc="cancelEdit" @blur="doneEdit">
+           @keyup.esc="cancelEdit" @blur="doneEdit">
   </li>
 </template>
 

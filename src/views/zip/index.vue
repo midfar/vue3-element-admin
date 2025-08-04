@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <div style="margin-bottom: 20px;">
-    <el-input v-model="filename" placeholder="Please enter the file name (default file)" style="width:300px;" :icon="IconDocument" />
-    <el-button :loading="downloadLoading" type="primary" :icon="IconDocument" @click="handleDownload">
-      Export Zip
-    </el-button>
-  </div>
+      <el-input v-model="filename" placeholder="Please enter the file name (default file)" style="width:300px;" :icon="IconDocument" />
+      <el-button :loading="downloadLoading" type="primary" :icon="IconDocument" @click="handleDownload">
+        Export Zip
+      </el-button>
+    </div>
     <el-table v-loading="listLoading" :data="list" element-loading-text="拼命加载中" border fit highlight-current-row>
       <el-table-column align="center" label="ID" width="95">
         <template v-slot="scope">

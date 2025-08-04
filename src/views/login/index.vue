@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on"
-      label-position="left">
+             label-position="left">
 
       <div class="title-container">
         <h3 class="title">Login Form</h3>
@@ -12,7 +12,7 @@
           <svg-icon icon-class="user" />
         </span>
         <el-input ref="username" v-model="loginForm.username" placeholder="Username" name="username" type="text"
-          tabindex="1" autocomplete="on" />
+                  tabindex="1" autocomplete="on" />
       </el-form-item>
 
       <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
@@ -21,8 +21,8 @@
             <svg-icon icon-class="password" />
           </span>
           <el-input :key="passwordType" ref="password" v-model="loginForm.password" :type="passwordType"
-            placeholder="Password" name="password" tabindex="2" autocomplete="on" @keyup="checkCapslock"
-            @blur="capsTooltip = false" @keyup.enter="handleLogin" />
+                    placeholder="Password" name="password" tabindex="2" autocomplete="on" @keyup="checkCapslock"
+                    @blur="capsTooltip = false" @keyup.enter="handleLogin" />
           <span class="show-pwd" @click="showPwd">
             <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
           </span>

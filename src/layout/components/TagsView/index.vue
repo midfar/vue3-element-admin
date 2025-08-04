@@ -2,12 +2,12 @@
   <div id="tags-view-container" class="tags-view-container">
     <scroll-pane ref="scrollPane" class="tags-view-wrapper" @scroll="handleScroll">
       <router-link v-for="tag in visitedViews" :key="tag.path"
-        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" custom
-        v-slot="{ navigate, isActive, isExactActive }" ref="tag">
+                   :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" custom
+                   v-slot="{ navigate, isActive, isExactActive }" ref="tag">
         <span :class="['tags-view-item', isActive && 'router-link-active', isExactActive && 'router-link-exact-active']"
-          @click="navigate"
-          @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
-          @contextmenu.prevent="openMenu(tag, $event)">
+              @click="navigate"
+              @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
+              @contextmenu.prevent="openMenu(tag, $event)">
           {{ tag.title }}
           <icon-close v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
         </span>

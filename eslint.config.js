@@ -53,10 +53,9 @@ export default [
     },
     'rules': {
       'vue/no-multiple-template-root': 'off',
-      'vue/multi-word-component-names': 'off',
-      'vue/singleline-html-element-content-newline': 'off',
-      'vue/multiline-html-element-content-newline': 'off',
       'vue/no-v-html': 'off',
+      'vue/multi-word-component-names': 'off',
+      'vue/multiline-html-element-content-newline': 'off',
       'accessor-pairs': 2,
       'arrow-spacing': [2, {
         'before': true,
@@ -217,6 +216,15 @@ export default [
       'template-curly-spacing': [2, 'never'],
       'use-isnan': 2,
       'valid-typeof': 2,
+      'vue/html-indent': ['error', 2],
+      'vue/max-attributes-per-line': 'off',
+      'vue/attribute-hyphenation': ['error', 'always'],
+      'vue/order-in-components': 'error',
+      'vue/singleline-html-element-content-newline': 'off',
+      // 'vue/singleline-html-element-content-newline': ['error', {
+      //   'ignoreWhenNoAttributes': true,
+      //   'ignoreWhenEmpty': true
+      // }],
       'wrap-iife': [2, 'any'],
       'yield-star-spacing': [2, 'both'],
       'yoda': [2, 'never'],

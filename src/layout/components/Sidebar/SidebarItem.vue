@@ -4,7 +4,7 @@
       v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !(item.meta && item.meta.alwaysShow)">
       <app-link class="link" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item class="left-menu-item" v-if="onlyOneChild.meta" :index="resolvePath(onlyOneChild.path)"
-          :class="{ 'submenu-title-noDropdown': !isNest }">
+                      :class="{ 'submenu-title-noDropdown': !isNest }">
 
           <!-- <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" :title="onlyOneChild.meta.title" /> -->
           <template v-if="get2MetaIconPath(onlyOneChild, item)">
@@ -32,7 +32,7 @@
         <span class="text text-two">{{ item.meta.title }}</span>
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child"
-        :base-path="resolvePath(child.path)" class="nest-menu" />
+                    :base-path="resolvePath(child.path)" class="nest-menu" />
     </el-sub-menu>
   </div>
 </template>

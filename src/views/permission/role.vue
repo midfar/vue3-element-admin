@@ -33,11 +33,11 @@
         </el-form-item>
         <el-form-item label="Desc">
           <el-input v-model="role.description" :autosize="{ minRows: 2, maxRows: 4 }" type="textarea"
-            placeholder="Role Description" />
+                    placeholder="Role Description" />
         </el-form-item>
         <el-form-item label="Menus">
           <el-tree ref="tree" :check-strictly="checkStrictly" :data="routesData" :props="defaultProps" show-checkbox
-            node-key="path" class="permission-tree" />
+                   node-key="path" class="permission-tree" />
         </el-form-item>
       </el-form>
       <div style="text-align:right;">
